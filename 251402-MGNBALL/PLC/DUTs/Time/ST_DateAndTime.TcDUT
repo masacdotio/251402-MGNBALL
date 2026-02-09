@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <DUT Name="ST_DateAndTime" Id="{30f63df5-93f0-4289-bd66-5c3f94d1cc08}">
+    <Declaration><![CDATA[TYPE ST_DateAndTime :
+STRUCT
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

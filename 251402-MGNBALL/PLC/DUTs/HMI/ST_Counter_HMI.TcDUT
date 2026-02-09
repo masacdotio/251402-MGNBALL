@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <DUT Name="ST_Counter_HMI" Id="{9a1d29ac-a711-4a03-b577-e3c98fb12888}">
+    <Declaration><![CDATA[TYPE ST_Counter_HMI :
+STRUCT
+	bReset			:BOOL;
+	iOK				:UDINT;
+	iNOK			:UDINT;
+	bError			:BOOL;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

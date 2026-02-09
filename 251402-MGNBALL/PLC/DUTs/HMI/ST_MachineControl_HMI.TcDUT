@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <DUT Name="ST_MachineControl_HMI" Id="{37d31d4c-cf1e-460c-bd71-06e22e4ecc38}">
+    <Declaration><![CDATA[TYPE ST_MachineControl_HMI :
+STRUCT
+	bAutomaticMode 		: BOOL;
+	bServiceMode		: BOOL;
+	
+	bStartProcess		: BOOL;
+	bPauseProcess		: BOOL;
+	bStopProcess		: BOOL;
+	
+	
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

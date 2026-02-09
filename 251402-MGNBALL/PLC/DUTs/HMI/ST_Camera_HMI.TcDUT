@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <DUT Name="ST_Camera_HMI" Id="{f5d9e361-9467-4c07-871a-52a615089a94}">
+    <Declaration><![CDATA[TYPE ST_Camera_HMI :
+STRUCT
+	bCapturing		:BOOL;
+	sCameraStatus	:STRING;
+	sJobResult		:STRING;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

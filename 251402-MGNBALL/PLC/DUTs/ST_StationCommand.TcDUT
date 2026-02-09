@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <DUT Name="ST_StationCommand" Id="{294c77be-25f9-425f-b9d2-8eae78723bed}">
+    <Declaration><![CDATA[TYPE ST_StationCommand :
+STRUCT
+	//Feeder cmd
+	bFeederSTART		:BOOL;
+	//Intake lift cmd
+	bIntakeLift_UP		:BOOL;
+	bIntakeLift_DOWN	:BOOL;
+	bIntakeLift_HOME	:BOOL;
+	//Outlet lift cmd
+	bOutletLift_UP		:BOOL;
+	bOutletLift_DOWN	:BOOL;
+	bOutletLift_HOME	:BOOL;
+	//Robot cmd
+	bRobot_START		:BOOL;
+	iRobot_JobNumber	:USINT;
+	//Conveyor cmd
+	bConveyorJog		:BOOL;
+	bClampPick			:BOOL;
+	bClampPlace			:BOOL;
+	//Robot camera cmd
+	bRobotCamera_Capture:BOOL;
+	//Fixed camera cmd
+	bFixedCamera_Capture:BOOL;
+	iFixedCamera_Job	:USINT;
+	//Counters
+	bCount				:BOOL;
+	iPartOK				:USINT;
+	iPartNOK			:USINT;
+	//Greasing
+	bGreasing_Purge		:BOOL;
+	bGreasing_Pulse		:BOOL;
+	tGreasing_Time		:TIME;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

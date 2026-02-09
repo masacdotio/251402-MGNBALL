@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <DUT Name="ST_Control" Id="{ffbaad1e-4145-4dc4-8bdf-fcf66f461695}">
+    <Declaration><![CDATA[TYPE ST_Control :
+STRUCT
+	iStep					:UINT;
+	iStep_Prev				:UINT;
+	bAuto					:BOOL;
+	bService				:BOOL;
+	bStarting				:BOOL;
+	bInterlockOK			:BOOL;
+	bProcesslockOK			:BOOL;
+	bStartConditionsOK		:BOOL;
+	bRunning				:BOOL;
+	bPaused					:BOOL;
+	bAbort					:BOOL;
+	bStopping				:BOOL;
+	bStopped				:BOOL;
+	bJump					:BOOL;
+	bHold					:BOOL;
+	bPoweredOn				:BOOL;
+	bPoweredOff				:BOOL;
+	bInit					:BOOL;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

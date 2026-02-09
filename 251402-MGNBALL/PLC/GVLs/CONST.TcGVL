@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <GVL Name="CONST" Id="{7a4f5619-8a30-4379-b416-a1a7218e0288}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+	AMS_NETID				:STRING:='10.0.0.5.1.1';
+	PROJECT_DIR				:STRING:='C:\250605-Aeromatic1\';
+	DB_ID					:UDINT:=1;
+	
+	
+	//Process constants
+	GREASE_DENSITY			:REAL:=1;//[g/l]
+	
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

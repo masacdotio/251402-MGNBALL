@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="P99_HMIControl" Id="{111549b4-e811-4bbd-9c26-694e0f1fb3ff}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM P99_HMIControl
+VAR
+	i:UDINT;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[//----------------Header---------------------//
+IF Station.stControl.bAuto THEN
+	HMI.stToHMI.stHeader.bControlMode := 0;
+ELSIF Station.stControl.bService THEN
+	HMI.stToHMI.stHeader.bControlMode := 1;
+END_IF
+
+IF Station.stControl.bStopping THEN
+	HMI.stToHMI.stHeader.iStatus := 0;
+ELSIF Station.stControl.bStopped THEN
+	HMI.stToHMI.stHeader.iStatus := 1;
+ELSIF Station.stControl.bStarting THEN
+	HMI.stToHMI.stHeader.iStatus := 2;
+ELSIF Station.stControl.bRunning THEN
+	HMI.stToHMI.stHeader.iStatus := 3;
+ELSIF Station.stControl.bPaused THEN
+	HMI.stToHMI.stHeader.iStatus := 4;
+END_IF
+
+HMI.stToHMI.stHeader.sCycleTime := F_TimerToString(Station.tonCycleTimer.ET);
+HMI.stToHMI.stHeader.sDate := GV.stTime.sDate;
+HMI.stToHMI.stHeader.sTime := GV.stTime.sTime;
+
+IF Station.bBatchOpen THEN
+	HMI.stToHMI.stHeader.sBatch := Station.stBatch.sBatchNumber;
+ELSE
+	HMI.stToHMI.stHeader.sBatch := '-';
+END_IF
+
+//------------------Footer---------------------//
+//Footer commands:
+HMI.stToHMI.stFooter.bAuto_Enable := TRUE;
+HMI.stToHMI.stFooter.bService_Enable := NOT Station.stControl.bRunning;
+HMI.stToHMI.stFooter.bStart_Enable := Station.stControl.bStartConditionsOK;
+HMI.stToHMI.stFooter.bStop_Enable := TRUE;
+HMI.stToHMI.stFooter.bPause_Enable := TRUE;
+//Footer feedback:
+HMI.stToHMI.stFooter.bAuto := Station.stControl.bAuto;
+HMI.stToHMI.stFooter.bService := Station.stControl.bService;
+HMI.stToHMI.stFooter.bStart := Station.stControl.bRunning OR (Station.stControl.bStarting AND GV.stTime.bClock_500ms);
+HMI.stToHMI.stFooter.bPause := Station.stControl.bPaused;
+HMI.stToHMI.stFooter.bStop := Station.stControl.bStopped OR (Station.stControl.bStopping AND GV.stTime.bClock_500ms);
+
+//---------------------------------------------PnID---------------------------------------//
+
+//----------------Robot--------------------//
+//Robot controller:
+HMI.stToHMI.stRobot.bPowerOn := Station.stRobotControl.bPoweredOn OR (Station.stRobotControl.bStarting AND GV.stTime.bClock_500ms);
+HMI.stToHMI.stRobot.bPowerOff := Station.stRobotControl.bPoweredOff OR (Station.stRobotControl.bStopping AND GV.stTime.bClock_500ms);
+HMI.stToHMI.stRobot.bInit := Station.stRobotControl.bInit AND GV.stTime.bClock_500ms;
+HMI.stToHMI.stRobot.bStart := Station.stRobotControl.bRunning;
+HMI.stToHMI.stRobot.bStop := Station.stRobotControl.bStopped;
+HMI.stToHMI.stRobot.iStep := Station.stRobotControl.iStep;
+//HMI.stToHMI.stRobot.sStatus := Device.status
+
+//--------------Lifts----------------------//
+//Intake lift (left)
+Station.stManCmd.bIntakeLift_UP := HMI.stFromHMI.stLiftIntake.bGoUp AND IN.iBufferIn > 1; //Service mode command
+Station.stManCmd.bIntakeLift_DOWN := HMI.stFromHMI.stLiftIntake.bGoDown AND IN.iBufferIn < 380; //Service mode command
+IF HMI.stFromHMI.stLiftIntake.bHome AND Station.stControl.bService THEN
+	Station.stManCmd.bIntakeLift_HOME := TRUE;
+END_IF
+IF IN.iBufferIn < 1 THEN
+	Station.stManCmd.bIntakeLift_HOME := FALSE;
+END_IF
+HMI.stToHMI.stLiftIntake.bHome := Station.stManCmd.bIntakeLift_HOME AND GV.stTime.bClock_500ms;
+//Elevator visualisation
+HMI.stToHMI.stLiftIntake.iPosition := 500 + IN.iBufferIn;
+IF HMI.stToHMI.stLiftIntake.iPosition < 500 THEN
+	HMI.stToHMI.stLiftIntake.iPosition := 500;
+END_IF
+IF HMI.stToHMI.stLiftIntake.iPosition > 880 THEN
+	HMI.stToHMI.stLiftIntake.iPosition := 880;
+END_IF
+
+//Outlet lift (right)
+Station.stManCmd.bOutletLift_UP := HMI.stFromHMI.stLiftOutlet.bGoUp AND IN.iBufferOut > 1; //Service mode command
+Station.stManCmd.bOutletLift_DOWN := HMI.stFromHMI.stLiftOutlet.bGoDown AND IN.iBufferOut < 380; //Service mode command
+IF HMI.stFromHMI.stLiftOutlet.bHome AND Station.stControl.bService THEN
+	Station.stManCmd.bOutletLift_HOME := TRUE;
+END_IF
+IF IN.iBufferOut >= 380 THEN
+	Station.stManCmd.bOutletLift_HOME := FALSE;
+END_IF
+HMI.stToHMI.stLiftOutlet.bHome := Station.stManCmd.bOutletLift_HOME AND GV.stTime.bClock_500ms;
+//Elevator visualisation
+HMI.stToHMI.stLiftOutlet.iPosition := 500 + IN.iBufferOut;
+IF HMI.stToHMI.stLiftOutlet.iPosition < 500 THEN
+	HMI.stToHMI.stLiftOutlet.iPosition := 500;
+END_IF
+IF HMI.stToHMI.stLiftOutlet.iPosition > 880 THEN
+	HMI.stToHMI.stLiftOutlet.iPosition := 880;
+END_IF
+
+//--------------Conveyor----------------------//
+//HMI.stToHMI.bConveyorJog := Station.stCommand.bConveyorJog;
+HMI.stToHMI.stPID.bConveyor_Moving := IN.bConveyor_Drive;
+Station.stManCmd.bConveyorJog := HMI.stFromHMI.bConveyorJog; //Service mode command
+
+//---------------Cameras---------------------//
+//Robot camera (above)
+HMI.stToHMI.stRobotCamera.bCapturing := Station.stCommand.bRobotCamera_Capture;
+(*
+IF Device.Pass THEN
+	HMI.stToHMI.stRobotCamera.sJobResult := 'Pass';
+ELSIF Device.Fail THEN
+	HMI.stToHMI.stRobotCamera.sJobResult := 'Fail';
+ELSE
+	HMI.stToHMI.stRobotCamera.sJobResult := '';
+END_IF
+*)
+//HMI.stToHMI.stRobotCamera.sCameraStatus := Device.status
+//Fixed camera (above)
+HMI.stToHMI.stFixedCamera.bCapturing := Station.stCommand.bFixedCamera_Capture;
+(*
+IF Device.Pass THEN
+	HMI.stToHMI.stFixedCamera.sJobResult := 'Pass';
+ELSIF Device.Fail THEN
+	HMI.stToHMI.stFixedCamera.sJobResult := 'Fail';
+ELSE
+	HMI.stToHMI.stFixedCamera.sJobResult := '';
+END_IF
+*)
+//HMI.stToHMI.stFixedCamera.sCameraStatus := Device.status
+
+//----------------Greasing station----------//
+//Service mode commands
+Station.stManCmd.tGreasing_Time := UINT_TO_TIME(HMI.stFromHMI.stGreasing.iTime);
+Station.stManCmd.bGreasing_Pulse := HMI.stFromHMI.stGreasing.bPulse;
+Station.stManCmd.bGreasing_Purge := HMI.stFromHMI.stGreasing.bPurge;
+
+//----------------Sensors------------------//
+HMI.stToHMI.stPID.bTray_Ready_Left := IN.bSensor_TrayInReady;
+HMI.stToHMI.stPID.bTray_Ready_Right := IN.bSensor_TrayOutReady;
+HMI.stToHMI.stPID.bTray_PickPosition := IN.bSensor_TrayInPick;
+HMI.stToHMI.stPID.bTray_PlacePosition := IN.bSensor_TrayInPlace;
+
+//---------------------------------------BATCH page----------------------------------------//
+
+HMI.stToHMI.stBatch.bBatchOpen := Station.bBatchOpen;
+HMI.stToHMI.stBatch.bBatchClose := Station.bBatchClosed;
+
+//--------------------------------------PRODUCTIVITY page----------------------------------//
+//Resettable counter:
+HMI.stToHMI.stCounter[1].iOK := GV.cntResettable.q_iOK;
+HMI.stToHMI.stCounter[1].iNOK := GV.cntResettable.q_iNOK;
+//Hurly counter
+HMI.stToHMI.stCounter[2].iOK := GV.cntHourly.q_iOK;
+HMI.stToHMI.stCounter[2].iNOK := GV.cntHourly.q_iNOK;
+//Batch counter
+HMI.stToHMI.stCounter[3].iOK := GV.cntBatch.q_iOK;
+HMI.stToHMI.stCounter[3].iNOK := GV.cntBatch.q_iNOK;
+//Total counter
+HMI.stToHMI.stCounter[4].iOK := GV.cntTotal.q_iOK;
+HMI.stToHMI.stCounter[4].iNOK := GV.cntTotal.q_iNOK;
+//Trend 
+HMI.stToHMI.stHistory.bShift1 := GV.stTime.CurrentHour >= 6 AND GV.stTime.CurrentHour <14;
+HMI.stToHMI.stHistory.bShift2 := GV.stTime.CurrentHour >= 14 AND GV.stTime.CurrentHour <22;
+HMI.stToHMI.stHistory.bShift3 := GV.stTime.CurrentHour >= 22 OR GV.stTime.CurrentHour <6;
+
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

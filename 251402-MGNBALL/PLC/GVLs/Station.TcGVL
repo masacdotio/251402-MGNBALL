@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <GVL Name="Station" Id="{9cfe5da6-a59f-401e-9013-a7066d887043}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+	stAlarm							:ST_Alarm;
+
+	bBatchOpen						:BOOL;
+	bBatchClosed						:BOOL;
+	bBatchBusy						:BOOL;
+	bAlarmOK						:BOOL;	
+	
+	stAutoCmd						:ST_StationCommand;
+	stManCmd						:ST_StationCommand;
+	stCommand						:ST_StationCommand;				
+
+	tonCycleTimer					:TON;
+
+END_VAR
+
+VAR_GLOBAL PERSISTENT
+	stSettings						:ST_Settings;
+	stBatch							:ST_Batch;
+	stLastBatch						:ST_Batch;
+	stControl						:ST_Control;
+	stRobotControl					:ST_Control;
+	
+	iIntakeLiftPosition				:USINT;
+	iOutletLiftPosition				:USINT;
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

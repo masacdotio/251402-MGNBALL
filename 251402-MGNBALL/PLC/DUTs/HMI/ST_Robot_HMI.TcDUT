@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <DUT Name="ST_Robot_HMI" Id="{31e11358-927d-466d-8121-ae8e920930e4}">
+    <Declaration><![CDATA[TYPE ST_Robot_HMI :
+STRUCT
+	bStart : BOOL;
+	bStop : BOOL;
+	bInit : BOOL;
+	bPowerOn : BOOL;
+	bPowerOff : BOOL;
+	
+	iStep : 	UINT;
+	sStatus : STRING;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

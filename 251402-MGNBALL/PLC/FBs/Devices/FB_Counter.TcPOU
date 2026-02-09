@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="FB_Counter" Id="{4e85bbf2-0f3d-432a-949d-9645c0a63f16}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_Counter
+VAR_INPUT
+	i_bCount		:BOOL; //Must be used with edge trigger!
+	i_iOK			:USINT;
+	i_iNOK			:USINT;
+	i_bReset		:BOOL;
+END_VAR
+VAR_OUTPUT
+	q_iOK			:UDINT;
+	q_iNOK			:UDINT;
+END_VAR
+VAR
+	
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[//increment
+IF i_bCount THEN
+	q_iOK := q_iOK + i_iOK;
+ELSIF i_bCount THEN
+	q_iNOK := q_iNOK + i_iNOK;
+END_IF;
+//reset
+IF i_bReset THEN
+	q_iOK := 0;
+	q_iNOK := 0;
+END_IF
+
+	]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

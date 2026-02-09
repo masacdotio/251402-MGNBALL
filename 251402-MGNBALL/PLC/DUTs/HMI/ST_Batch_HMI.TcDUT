@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <DUT Name="ST_Batch_HMI" Id="{c5f84415-2fc9-454c-b9bb-788f25e2b126}">
+    <Declaration><![CDATA[TYPE ST_Batch_HMI :
+STRUCT
+	bBatchOpen : BOOL;
+	bBatchClose : BOOL;
+	sBatchName : STRING;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

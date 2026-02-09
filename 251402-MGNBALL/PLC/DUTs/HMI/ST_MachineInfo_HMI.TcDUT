@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <DUT Name="ST_MachineInfo_HMI" Id="{6838a5be-30b1-4ccc-980f-2845eb849445}">
+    <Declaration><![CDATA[TYPE ST_MachineInfo_HMI :
+STRUCT
+	bControlMode		: BOOL;//0 - Auto, 1 - Manual
+	iStatus				: USINT;//0-Stopping, 1-Stopped, 2-Starting, 3-Running, 4-Paused
+	sBatch				: STRING;// Closed or Batch number
+	iCounter			: LINT;//Finished part counter
+	sDate				: STRING;//System date
+	sTime				: STRING;//System time
+	sCycleTime			: STRING;//MM:SS
+	sUserLogged			: STRING;
+	iCurrentStep		: USINT;
+	
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

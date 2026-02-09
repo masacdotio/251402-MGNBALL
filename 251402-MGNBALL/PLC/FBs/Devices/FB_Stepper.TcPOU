@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="FB_Stepper" Id="{a38730a4-3247-47f2-8174-116774cc335c}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_Stepper EXTENDS FB_Device
+VAR_INPUT	
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[//Add the tc2_mc function blocks here]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

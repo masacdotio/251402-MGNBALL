@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <DUT Name="ST_PID_HMI" Id="{8707d684-f7f0-49b1-89ae-fc128dd62a8a}">
+    <Declaration><![CDATA[TYPE ST_PID_HMI :
+STRUCT
+	bTray_PickPosition	: BOOL;
+	bTray_PlacePosition	: BOOL;
+	bTray_Ready_Left	: BOOL;
+	bTray_Ready_Right	: BOOL;
+	bConveyor_Moving	: BOOL;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

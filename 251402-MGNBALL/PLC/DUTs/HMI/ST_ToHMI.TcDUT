@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <DUT Name="ST_ToHMI" Id="{8a920d7a-a962-41d4-b7f6-37b6999d7615}">
+    <Declaration><![CDATA[TYPE ST_ToHMI :
+STRUCT
+	stHeader		:ST_MachineInfo_HMI;
+	stPID			:ST_PID_HMI;
+	stFooter		:ST_Footer_HMI;
+	stRobot			:ST_Robot_HMI;
+	stLiftIntake	:ST_Lift_HMI;
+	stLiftOutlet	:ST_Lift_HMI;
+	bConveyorJog	:BOOL;
+	stRobotCamera	:ST_Camera_HMI;
+	stFixedCamera	:ST_Camera_HMI;
+	stBatch			:ST_Batch_HMI;
+	stCounter		:ARRAY [1..7] OF ST_Counter_HMI;
+	stGreasing		:ST_Greasing_HMI;
+	stHistory		:ST_History_HMI;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

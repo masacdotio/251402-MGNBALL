@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <GVL Name="GV" Id="{07af1401-1339-48c1-8486-bb5ea9b2636f}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+	//Time
+	stTime : ST_Time;
+	bUPSDetect : BOOL;
+	aPoints		:ARRAY[1..2, 1..24] OF ST_Point;
+END_VAR
+
+VAR_GLOBAL PERSISTENT
+	sUserLogged					:STRING;
+	cntResettable				:FB_Counter;
+	cntHourly					:FB_Counter;
+	cntTotal					:FB_Counter;
+	cntBatch					:FB_Counter;
+	cntShift1					:FB_Counter;
+	cntShift2					:FB_Counter;
+	cntShift3					:FB_Counter;
+	stSettings					:ST_Settings;
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

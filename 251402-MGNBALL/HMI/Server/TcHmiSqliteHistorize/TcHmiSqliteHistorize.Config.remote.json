@@ -1,0 +1,37 @@
+{
+    "enableBackup": false,
+    "historizedSymbolList": {
+        "ADS.PLC1.HMI.stToHMI.stHistory.bShift1": {
+            "interval": "PT1H",
+            "maxEntries": 24,
+            "recordingEnabled": false,
+            "rowLimit": 100000
+        },
+        "ADS.PLC1.HMI.stToHMI.stHistory.bShift2": {
+            "interval": "PT1H",
+            "maxEntries": 24,
+            "recordingEnabled": false,
+            "rowLimit": 100000
+        },
+        "ADS.PLC1.HMI.stToHMI.stHistory.bShift3": {
+            "interval": "PT1H",
+            "maxEntries": 24,
+            "recordingEnabled": false,
+            "rowLimit": 100000
+        },
+        "ADS.PLC1.HMI.stToHMI.stHistory.iNOK": {
+            "interval": "PT1H",
+            "maxEntries": 24,
+            "recordingEnabled": false,
+            "rowLimit": 100000
+        },
+        "ADS.PLC1.HMI.stToHMI.stHistory.iOK": {
+            "interval": "PT1H",
+            "maxEntries": 24,
+            "recordingEnabled": false,
+            "rowLimit": 100000
+        }
+    },
+    "inMemory": false,
+    "maxBackups": 1
+}

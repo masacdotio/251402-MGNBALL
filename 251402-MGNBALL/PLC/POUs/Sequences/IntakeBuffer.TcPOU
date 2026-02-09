@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="IntakeBuffer" Id="{5ff5bb1c-2e49-4a66-b9b8-88b19cd5edbe}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM IntakeBuffer
+VAR
+	bInterlocksOK			:BOOL;
+	rRealPosition			:REAL;
+	rNextPosition			:REAL;
+END_VAR
+VAR_OUTPUT
+	iStep					:UINT;
+	iPosition				:UINT;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[CASE iPosition OF
+	0:
+
+		rNextPosition := 2;
+	1:
+	
+		rNextPosition := 3;
+	2:
+
+		rNextPosition := 4;
+	3:
+
+		rNextPosition := 5;
+	4:
+
+		rNextPosition := 6;
+	5:
+
+		rNextPosition := 7;
+	6:
+	
+		rNextPosition := 8;
+	7:
+		rNextPosition := 9;
+	8:
+		
+		rNextPosition := 10;
+	9:
+		
+		rNextPosition := 11;
+	10:
+		
+		rNextPosition := 1;
+		
+END_CASE
+
+bInterlocksOK := TRUE;
+
+CASE iStep OF
+	0: //Hold
+		Station.stAutoCmd.bIntakeLift_DOWN := FALSE;
+		Station.stAutoCmd.bIntakeLift_UP := FALSE;
+		Station.stAutoCmd.bIntakeLift_HOME := FALSE;
+		IF Station.stControl.bRunning THEN
+			iStep := 100;
+		END_IF
+		
+	100: //Counting trays
+		IF iPosition <= 10 AND IN.bSensor_TrayInReady THEN
+			iStep := 400; //Continue
+		ELSIF iPosition = 10 AND NOT IN.bSensor_TrayInReady THEN
+			iStep := 200; //Buffer empty
+		END_IF
+	
+	200: //Home buffer
+		Station.stAutoCmd.bIntakeLift_HOME := TRUE;
+		IF IN.bIntakeBuffer_Homed THEN
+			iStep := 300;
+		END_IF
+	
+	300: //Call operator and pause process (in MachineControl)
+		//Call operator
+		iStep := 999;
+	
+		
+	400: //Waiting for Robot
+		
+		
+	500: //Conveyor handshake
+		IF Conveyor.iStep = 999 THEN
+			iStep := 600;
+		END_IF
+		
+	600: //Lowering
+		Station.stAutoCmd.bIntakeLift_DOWN := TRUE;
+		IF rRealPosition = rNextPosition THEN 
+			iPosition := iPosition + 1;
+			iStep := 999;
+		END_IF
+	
+	999: //finish
+		Station.stAutoCmd.bIntakeLift_DOWN := FALSE;
+		Station.stAutoCmd.bIntakeLift_UP := FALSE;
+		Station.stAutoCmd.bIntakeLift_HOME := FALSE;
+		iStep := 0;
+
+END_CASE]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="FB_Handshake" Id="{1fa1d538-4a97-4c2b-80fb-3ff2805dfced}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_Handshake
+VAR_INPUT
+	i_bExecute			:BOOL;						//Input
+	i_iJob				:USINT;						//Job number (if only one job leave at 0)
+	i_tTimeout			:TIME;
+
+	i_bDone				:BOOL;						//Job done
+	i_bBusy				:BOOL;						//Device busy
+	i_Args				:ARRAY [0..13] OF BOOL;		//Device arguments
+END_VAR
+VAR_OUTPUT
+	q_bTrigger			:BOOL;						//Activate job
+	q_bPLC_Ready		:BOOL := FALSE;				//Handshake initiated
+	q_Args				:ARRAY [0..9] OF BOOL;		//Information for device
+	
+	q_Result			:ARRAY [0..13] OF BOOL;		//Adjust for possible results
+	q_bTimeout			:BOOL;
+END_VAR
+VAR
+	i		:USINT;
+	tonTimeout	:TON;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[//Wait for device ready
+IF i_bBusy THEN
+	q_bTrigger := FALSE;
+END_IF
+//Init handshake:
+IF i_bExecute AND NOT q_bPLC_Ready THEN
+	q_bPLC_Ready := TRUE;
+	q_bTrigger := TRUE;
+	MEMSET(destAddr:=ADR(q_Args), fillByte:=0, n:=SIZEOF(q_Args));
+	CASE i_iJob OF
+		0:
+			;
+		1:
+			q_Args[0] := TRUE;
+		2:
+			q_Args[1] := TRUE;
+		3:
+			q_Args[2] := TRUE;
+		4:
+			q_Args[3] := TRUE;
+		5:
+			q_Args[4] := TRUE;
+		6:
+			q_Args[5] := TRUE;
+		7:
+			q_Args[6] := TRUE;
+		8:
+			q_Args[7] := TRUE;
+		9:
+			q_Args[8] := TRUE;
+		10:
+			q_Args[9] := TRUE;
+	END_CASE
+END_IF
+//Device response:
+IF q_bPLC_Ready THEN
+	MEMSET(destAddr:=ADR(q_Result), fillByte:=0, n:=SIZEOF(q_Result));
+	IF i_bDone THEN FOR i := 0 TO 13 DO
+		q_Result[i] := i_Args[i];
+	END_FOR 
+	q_bPLC_Ready := FALSE;
+	END_IF
+END_IF
+//Timeout
+tonTimeout(IN:=q_bPLC_Ready, PT:=i_tTimeout);
+IF tonTimeout.Q THEN
+	q_bPLC_Ready := FALSE;
+END_IF
+q_bTimeout := tonTimeout.Q;]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

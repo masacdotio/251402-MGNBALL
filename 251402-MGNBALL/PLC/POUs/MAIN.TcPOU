@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="MAIN" Id="{b327c351-3beb-4a3c-9556-c753d3115e3b}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+	bFirstCycle		: BOOL := TRUE;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+
+P02_GlobalSystemTime();
+P03_MachineControl();
+P03_MachineControl.Robot();
+P03_MachineControl.Batch();
+P05_DeviceControl();
+P06_ProcessControl();
+P99_HMIControl();
+
+//Simulations
+Service_sim();
+Trend_sim();
+
+
+bFirstCycle := FALSE;]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="FB_Device" Id="{6df88dd6-f6f5-407d-be6b-a731b89de3ff}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_Device
+VAR_INPUT
+	i_bCmdHP				:BOOL;	//Command trigger
+	i_bCmdWP				:BOOL;	//Command trigger
+	i_tTimeout				:TIME;	//Time before timeout
+	
+	i_bFeedbackHP			:BOOL;	//Link to input, else set True
+	i_bFeedbackWP			:BOOL;	//Link to input, else set True
+END_VAR
+VAR_OUTPUT
+	q_bCmdHP				:BOOL;	//Link to output
+	q_bCmdWP				:BOOL;	//Link to output
+	q_bFeedbackHP			:BOOL;	//Device in HP
+	q_bFeedbackWP			:BOOL;	//Device in WP
+	q_bTimeout				:BOOL;	//Error
+END_VAR
+VAR
+	tonTimeout				:TON;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[//Go to HP
+IF i_bCmdHP THEN
+	q_bCmdHP := TRUE;
+	q_bCmdWP := FALSE;
+END_IF
+//Go to WP
+IF i_bCmdWP THEN
+	q_bCmdWP := TRUE;
+	q_bCmdHP := FALSE;
+END_IF
+//Do nothing if both
+IF i_bCmdHP AND i_bCmdWP THEN
+	q_bCmdHP := FALSE;
+	q_bCmdWP := FALSE;
+END_IF
+//Error handler
+tonTimeout(IN:=((q_bCmdHP AND NOT q_bFeedbackHP) OR (q_bCmdWP AND NOT q_bFeedbackWP)) AND NOT (i_bCmdHP OR i_bCmdWP) , PT:=i_tTimeout);
+q_bTimeout := tonTimeout.Q;
+//Feedback
+q_bFeedbackHP := i_bFeedbackHP AND q_bCmdHP;
+q_bFeedbackWP := i_bFeedbackWP AND q_bCmdWP;]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="Simulation" Id="{1c464058-24d6-42b5-95cd-ddd8975dc4d9}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM Simulation
+VAR
+	Lift1	:TON;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[//Intake lift simulation:
+IF HMI.stFromHMI.stLiftIntake.bGoUp THEN
+	
+	HMI.stFromHMI.stLiftIntake.bGoUp := FALSE;
+END_IF]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

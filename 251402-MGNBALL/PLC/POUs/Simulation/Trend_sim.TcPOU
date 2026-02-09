@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="Trend_sim" Id="{573151a2-82a4-46b0-93b4-82519825a2b1}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM Trend_sim
+VAR
+	//fbTrend		:FB_TrendLine;
+	i : INT;
+	iVal	:UDINT;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF MAIN.bFirstCycle THEN
+	FOR i := 1 TO 24 DO
+		GV.aPoints[1,i].x := i;
+		GV.aPoints[1,i].y := 1000;
+		
+		GV.aPoints[2,i].x := i;
+		GV.aPoints[2,i].y := 50;
+	END_FOR
+END_IF
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

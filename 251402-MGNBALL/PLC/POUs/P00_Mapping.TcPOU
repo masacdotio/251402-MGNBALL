@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="P00_Mapping" Id="{a71a5ccb-5f7c-4f94-87c7-70455710a762}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM P00_Mapping
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

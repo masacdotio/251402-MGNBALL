@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="FB_TONP" Id="{efd0eb6a-20eb-4f98-893b-ecbc4d4cad1a}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_TONP
+VAR_INPUT
+	IN				:BOOL;
+	PAUSE			:BOOL;
+	PT				:TIME;
+END_VAR
+	
+VAR_OUTPUT
+	ET				:TIME;
+	Q				:BOOL;
+END_VAR
+VAR
+	TON				:TON;
+	trigPause		:R_TRIG;
+	trigStart		:R_TRIG;
+	PT_START		:TIME;
+	ET_PAUSE		:TIME;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[trigStart(CLK:=IN);
+trigPause(CLK:=PAUSE);
+
+PT_START:=PT;
+IF trigStart.Q THEN
+	ET_PAUSE:=T#0S;
+END_IF
+IF IN AND trigPause.Q THEN
+	ET_PAUSE:=TON.ET + ET_PAUSE;
+END_IF
+
+TON(IN:=IN AND NOT PAUSE ,PT:=SEL(TO_DINT(PT_START)-TO_DINT(ET_PAUSE)>0,T#0S,PT_START-ET_PAUSE));
+
+Q:=TON.Q;
+ET:=(ET_PAUSE+TON.ET);
+IF NOT IN THEN
+	ET:=T#0s;
+END_IF]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

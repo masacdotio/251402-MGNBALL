@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <DUT Name="ST_Footer_HMI" Id="{eab3074a-9992-412f-a945-6709647c2915}">
+    <Declaration><![CDATA[TYPE ST_Footer_HMI :
+STRUCT
+	bAuto : BOOL; 
+	bService : BOOL;
+	bStop : BOOL;
+	bStart : BOOL;
+	bPause : BOOL;
+	
+	bAuto_Enable : BOOL;
+	bService_Enable : BOOL;
+	bStop_Enable : BOOL;
+	bStart_Enable : BOOL;
+	bPause_Enable : BOOL;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

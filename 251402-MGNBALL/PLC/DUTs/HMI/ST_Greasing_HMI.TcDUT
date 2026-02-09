@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <DUT Name="ST_Greasing_HMI" Id="{74c293d9-8d43-494f-8cd6-27d8b4217304}">
+    <Declaration><![CDATA[TYPE ST_Greasing_HMI :
+STRUCT
+	bPurge		:BOOL;
+	bPulse		:BOOL;
+	iTime		:UINT;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

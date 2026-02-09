@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <DUT Name="ST_Lift_HMI" Id="{d1e481e3-8be7-4b0d-98e5-2e5faea646e3}">
+    <Declaration><![CDATA[TYPE ST_Lift_HMI :
+STRUCT
+	bHome		:BOOL;
+	bGoUp		:BOOL;
+	bGoDown		:BOOL;
+	iPosition	:UINT;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

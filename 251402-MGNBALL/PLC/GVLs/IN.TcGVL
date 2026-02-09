@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <GVL Name="IN" Id="{e9e22287-5076-4173-9e22-90ce2db3659a}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+	//Input modules:
+
+
+	//Input variables:	
+	
+	//Sensors
+	bSensor_TrayInReady		:BOOL;
+	bSensor_TrayOutReady	:BOOL;
+	bSensor_TrayInPick		:BOOL;
+	bSensor_TrayInPlace		:BOOL;
+	
+	//Robot
+	bRobot_Initialised		:BOOL;
+	bRobot_Running			:BOOL;
+	bRobot_Ready			:BOOL;
+	bRobot_On				:BOOL;
+	bRobot_Ok				:BOOL;
+	bRobot_Done				:BOOL;
+	
+	//Camera
+	bCamera_Busy			:BOOL;
+	bCamera_Done			:BOOL;
+	bCamera_Args			:ARRAY [0..13] OF BOOL;
+	
+	//Conveyor
+	bConveyor_Drive			:BOOL;
+	bPickClamped			:BOOL;
+	bPlaceClamped			:BOOL;
+	
+	//Feeder
+	bFeeder_ON				:BOOL;
+	
+	//Intake buffer
+	bIntakeBuffer_Homed		:BOOL;
+	iBufferIn				:INT;
+	//Outlet buffer
+	bOutletBuffer_Homed		:BOOL;
+	iBufferOut				:INT;
+
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

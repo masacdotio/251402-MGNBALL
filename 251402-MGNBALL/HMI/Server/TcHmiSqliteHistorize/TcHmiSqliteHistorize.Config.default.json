@@ -1,0 +1,40 @@
+{
+    "commitInterval": "PT10S",
+    "enableBackup": true,
+    "historizedSymbolList": {
+        "ADS.PLC1.HMI.stToHMI.stHistory.bShift1": {
+            "interval": "PT15M",
+            "maxEntries": 24,
+            "recordingEnabled": true,
+            "rowLimit": 100000
+        },
+        "ADS.PLC1.HMI.stToHMI.stHistory.bShift2": {
+            "interval": "PT15M",
+            "maxEntries": 24,
+            "recordingEnabled": true,
+            "rowLimit": 100000
+        },
+        "ADS.PLC1.HMI.stToHMI.stHistory.bShift3": {
+            "interval": "PT15M",
+            "maxEntries": 24,
+            "recordingEnabled": true,
+            "rowLimit": 100000
+        },
+        "ADS.PLC1.HMI.stToHMI.stHistory.iNOK": {
+            "interval": "PT15M",
+            "maxEntries": 24,
+            "recordingEnabled": true,
+            "rowLimit": 100000
+        },
+        "ADS.PLC1.HMI.stToHMI.stHistory.iOK": {
+            "interval": "PT15M",
+            "maxEntries": 24,
+            "recordingEnabled": true,
+            "rowLimit": 100000
+        }
+    },
+    "inMemory": false,
+    "maxBackups": 1,
+    "mode": 3,
+    "vacuumOnStartup": false
+}

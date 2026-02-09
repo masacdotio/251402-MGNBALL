@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="Conveyor" Id="{d15df29a-e0d5-4d06-b61c-29e9ebb3fb51}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM Conveyor
+VAR
+	bInterlocksOK	:BOOL;
+END_VAR
+VAR_OUTPUT
+	iStep			:UINT;
+	iStepTemp		:UINT;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[bInterlocksOK := TRUE;
+
+iStepTemp:=iStep;
+CASE iStep OF
+	0: //Hold
+		Station.stAutoCmd.bConveyorJog := FALSE;
+		IF Station.stControl.bRunning THEN
+			iStep := 100;
+		END_IF
+		
+	100: //Waiting for Intake Buffer
+		IF IntakeBuffer.iStep = 500 THEN
+			iStep := 200;
+		END_IF
+
+	200: //Drive
+		Station.stAutoCmd.bConveyorJog := TRUE;
+		IF IN.bConveyor_Drive THEN
+			iStep := 300;
+		END_IF
+	
+	300: //Driving
+		IF IN.bSensor_TrayInPick AND IN.bSensor_TrayInPlace THEN
+			iStep := 999;
+		END_IF
+
+	999: //finish
+		Station.stAutoCmd.bConveyorJog := FALSE;
+		iStep := 0;
+END_CASE
+IF NOT bInterlocksOK THEN
+	iStep:=iStepTemp;
+END_IF
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
