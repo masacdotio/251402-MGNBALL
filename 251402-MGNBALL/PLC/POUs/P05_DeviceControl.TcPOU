@@ -163,7 +163,7 @@ END_VAR
                             <v n="LValue">false</v>
                             <v n="Boolean">false</v>
                             <v n="IsInstance">true</v>
-                            <v n="Id">33L</v>
+                            <v n="Id">39L</v>
                           </o>
                           <o n="OutputItems" t="OutputItemList">
                             <l2 n="OutputItems" cet="Operand">
@@ -252,7 +252,7 @@ END_VAR
                             </o>
                             <o>
                               <v n="Flags">0</v>
-                              <v n="Fixed">false</v>
+                              <v n="Fixed">true</v>
                               <v n="Extensible">false</v>
                             </o>
                             <o>
@@ -370,7 +370,7 @@ END_VAR
                             <o>
                               <o n="Operand" t="Operand">
                                 <v n="Operand">"IN.bCamera_Args"</v>
-                                <v n="Type">"ARRAY [0..13] OF BOOL"</v>
+                                <v n="Type">"BYTE"</v>
                                 <v n="Comment">""</v>
                                 <v n="SymbolComment">""</v>
                                 <v n="Address">""</v>
@@ -402,7 +402,7 @@ END_VAR
                               <v>TIME</v>
                               <v>BOOL</v>
                               <v>BOOL</v>
-                              <v>ARRAY [0..13] OF BOOL</v>
+                              <v>BYTE</v>
                             </l2>
                           </o>
                           <o n="OutputParam" t="ParamList">
@@ -417,7 +417,7 @@ END_VAR
                               <v>BOOL</v>
                               <v>BOOL</v>
                               <v>ARRAY [0..9] OF BOOL</v>
-                              <v>ARRAY [0..13] OF BOOL</v>
+                              <v>BYTE</v>
                               <v>BOOL</v>
                             </l2>
                           </o>
@@ -427,7 +427,7 @@ END_VAR
                           <n n="STSnippet" />
                           <v n="ContainsExtensibleInputs">false</v>
                           <v n="ProvidesSTSnippet">false</v>
-                          <v n="Id">34L</v>
+                          <v n="Id">40L</v>
                         </o>
                         <v n="Id">20L</v>
                       </o>
@@ -2166,7 +2166,7 @@ END_VAR
                             <v n="LValue">false</v>
                             <v n="Boolean">false</v>
                             <v n="IsInstance">true</v>
-                            <v n="Id">9L</v>
+                            <v n="Id">27L</v>
                           </o>
                           <o n="OutputItems" t="OutputItemList">
                             <l2 n="OutputItems" cet="Operand">
@@ -2341,8 +2341,8 @@ END_VAR
                             </o>
                             <o>
                               <o n="Operand" t="Operand">
-                                <v n="Operand">""</v>
-                                <n n="Type" />
+                                <v n="Operand">"IN.bRobot_Args"</v>
+                                <v n="Type">"BYTE"</v>
                                 <v n="Comment">""</v>
                                 <v n="SymbolComment">""</v>
                                 <v n="Address">""</v>
@@ -2374,7 +2374,7 @@ END_VAR
                               <v>TIME</v>
                               <v>BOOL</v>
                               <v>BOOL</v>
-                              <v>ARRAY [0..13] OF BOOL</v>
+                              <v>BYTE</v>
                             </l2>
                           </o>
                           <o n="OutputParam" t="ParamList">
@@ -2389,7 +2389,7 @@ END_VAR
                               <v>BOOL</v>
                               <v>BOOL</v>
                               <v>ARRAY [0..9] OF BOOL</v>
-                              <v>ARRAY [0..13] OF BOOL</v>
+                              <v>BYTE</v>
                               <v>BOOL</v>
                             </l2>
                           </o>
@@ -2399,7 +2399,7 @@ END_VAR
                           <n n="STSnippet" />
                           <v n="ContainsExtensibleInputs">false</v>
                           <v n="ProvidesSTSnippet">false</v>
-                          <v n="Id">10L</v>
+                          <v n="Id">28L</v>
                         </o>
                         <v n="Id">24L</v>
                       </o>

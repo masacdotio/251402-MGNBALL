@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="Robot" Id="{734f2363-cf0b-4a5b-b620-ee2dc49995b5}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM Robot
+VAR
+	bInterlocksOK	:BOOL;
+	i				:USINT;
+END_VAR
+VAR_OUTPUT
+	iStep			:UINT;
+	iStepTemp		:UINT;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[bInterlocksOK := TRUE;
+
+iStepTemp:=iStep;
+CASE iStep OF
+	0: //Hold
+		IF Station.stControl.bRunning THEN
+			iStep := 100;
+		END_IF
+		
+	100: //Waiting for tray
+		IF IN.bSensor_TrayInPick AND IN.bSensor_TrayInPlace 
+			AND IN.bPickClamped AND IN.bPlaceClamped THEN
+			iStep := 200;
+		END_IF
+		
+	200: //Go to pick tray
+		Station.stAutoCmd.iRobot_JobNumber := 1;
+		IF P05_DeviceControl.fbRobot.q_Args[1] THEN
+			iStep := 300;
+		END_IF
+
+	300: //Gripper on
+		IF IN.bRobot_Gripper = Station.stCommand.bRobot_Gripper THEN
+			iStep := 400;
+		END_IF
+		
+	400: //Go to precise place
+		Station.stAutoCmd.iRobot_JobNumber := 2;
+		IF P05_DeviceControl.fbRobot.q_Args[2] THEN
+			iStep := 500;
+		END_IF
+	
+	500: //Gripper off
+		IF IN.bRobot_Gripper = Station.stCommand.bRobot_Gripper THEN
+			iStep := 600;
+		END_IF
+	
+	600: //Go to precise pick
+		Station.stAutoCmd.iRobot_JobNumber := 3;
+		IF P05_DeviceControl.fbRobot.q_Args[3] THEN
+			iStep := 700;
+		END_IF
+	
+	700: //Gripper on
+		IF IN.bRobot_Gripper = Station.stCommand.bRobot_Gripper THEN
+			iStep := 800;
+		END_IF
+		
+	800: //Go to greasing
+		Station.stAutoCmd.iRobot_JobNumber := 4;
+		IF P05_DeviceControl.fbRobot.q_Args[4] THEN
+			iStep := 900;
+		END_IF
+		
+	900: //Grease
+		IF Greaser.iStep = 999 THEN
+			iStep := 1000;
+		END_IF
+		
+	1000: //Go to greasing 2
+		Station.stAutoCmd.iRobot_JobNumber := 5;
+		IF P05_DeviceControl.fbRobot.q_Args[5] THEN
+			iStep := 1100;
+		END_IF	
+		
+	1100: //Grease
+		IF Greaser.iStep = 999 THEN
+			iStep := 1200;
+		END_IF
+		
+	1200: //Go to BB pick
+		Station.stAutoCmd.iRobot_JobNumber := 6;
+		IF P05_DeviceControl.fbRobot.q_Args[6] THEN
+			iStep := 1300;
+		END_IF	
+		
+	1300: //Waiting for camera
+		IF Camera.iStep = 999 THEN
+			iStep := 1400;
+		END_IF
+		
+	1400: //Check for bad parts
+		IF P05_DeviceControl.fbRobot.q_Result = 2#11111110 THEN
+			iStep := 1500;
+		ELSE
+			iStep := 1410;
+		END_IF
+	
+	1410: //Discard bad parts
+		Station.stAutoCmd.iRobot_JobNumber := 7;
+		IF P05_DeviceControl.fbRobot.q_Args[7] THEN
+			iStep := 1420;
+		END_IF	
+		
+	1420: //Gripper off
+		IF IN.bRobot_Gripper = Station.stCommand.bRobot_Gripper THEN
+			iStep := 1500;
+		END_IF
+		
+	1500: //Go to place tray
+		Station.stAutoCmd.iRobot_JobNumber := 8;
+		IF P05_DeviceControl.fbRobot.q_Args[8] THEN
+			iStep := 1600;
+		END_IF	
+	
+	1600: //Gripper off
+		IF IN.bRobot_Gripper = Station.stCommand.bRobot_Gripper THEN
+			iStep := 1700;
+		END_IF
+		
+	1700: //Return to init
+		Station.stAutoCmd.iRobot_JobNumber := 9;
+		IF P05_DeviceControl.fbRobot.q_Args[9] THEN
+			iStep := 999;
+		END_IF
+		
+	999: //finish
+		iStep := 0;
+END_CASE
+IF NOT bInterlocksOK THEN
+	iStep:=iStepTemp;
+END_IF
+
+//Control
+
+IF F_StepCMP(iStep, 300, 400, 700, 800, 900, 1000, 1100, 1200, 1300, 1400)
+OR F_StepCMP(iStep, 1410, 0, 0, 0, 0, 0, 0, 0, 0, 0) THEN
+	Station.stAutoCmd.bRobot_Gripper := 2#11111110; 
+ELSIF F_StepCMP(iStep, 1420, 1500, 0, 0, 0, 0, 0, 0, 0, 0) THEN
+	Station.stAutoCmd.bRobot_Gripper := P05_DeviceControl.fbRobot.q_Result;
+ELSE
+	Station.stAutoCmd.bRobot_Gripper := 2#00000000;
+END_IF
+
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

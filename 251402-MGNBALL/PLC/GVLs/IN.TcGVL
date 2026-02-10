@@ -21,11 +21,13 @@ VAR_GLOBAL
 	bRobot_On				:BOOL;
 	bRobot_Ok				:BOOL;
 	bRobot_Done				:BOOL;
+	bRobot_Gripper			:BYTE;
+	bRobot_Args				:BYTE;
 	
 	//Camera
 	bCamera_Busy			:BOOL;
 	bCamera_Done			:BOOL;
-	bCamera_Args			:ARRAY [0..13] OF BOOL;
+	bCamera_Args			:BYTE;
 	
 	//Conveyor
 	bConveyor_Drive			:BOOL;

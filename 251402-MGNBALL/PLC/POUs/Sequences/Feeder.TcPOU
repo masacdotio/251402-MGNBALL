@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="Feeder" Id="{1683f561-a8f4-4ab1-980c-a580769eef6e}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM Feeder
+VAR
+	bInterlocksOK	:BOOL;
+END_VAR
+VAR_OUTPUT
+	iStep			:UINT;
+	iStepTemp		:UINT;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[bInterlocksOK := TRUE;
+
+iStepTemp:=iStep;
+CASE iStep OF
+	0: //Hold
+		IF Station.stControl.bRunning THEN
+			iStep := 100;
+		END_IF
+		
+	100: //Work
+		;
+END_CASE
+IF NOT bInterlocksOK THEN
+	iStep:=iStepTemp;
+END_IF
+
+//Control
+Station.stAutoCmd.bFeederSTART := F_StepCMP(iStep, 100, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

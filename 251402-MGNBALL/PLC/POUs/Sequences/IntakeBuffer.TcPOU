@@ -9,6 +9,7 @@ VAR
 END_VAR
 VAR_OUTPUT
 	iStep					:UINT;
+	iStepTemp				:UINT;
 	iPosition				:UINT;
 END_VAR
 ]]></Declaration>
@@ -51,11 +52,9 @@ END_CASE
 
 bInterlocksOK := TRUE;
 
+iStepTemp:=iStep;
 CASE iStep OF
 	0: //Hold
-		Station.stAutoCmd.bIntakeLift_DOWN := FALSE;
-		Station.stAutoCmd.bIntakeLift_UP := FALSE;
-		Station.stAutoCmd.bIntakeLift_HOME := FALSE;
 		IF Station.stControl.bRunning THEN
 			iStep := 100;
 		END_IF
@@ -68,7 +67,6 @@ CASE iStep OF
 		END_IF
 	
 	200: //Home buffer
-		Station.stAutoCmd.bIntakeLift_HOME := TRUE;
 		IF IN.bIntakeBuffer_Homed THEN
 			iStep := 300;
 		END_IF
@@ -81,25 +79,28 @@ CASE iStep OF
 	400: //Waiting for Robot
 		
 		
-	500: //Conveyor handshake
+	500: //Waiting for conveyor
 		IF Conveyor.iStep = 999 THEN
 			iStep := 600;
 		END_IF
 		
 	600: //Lowering
-		Station.stAutoCmd.bIntakeLift_DOWN := TRUE;
 		IF rRealPosition = rNextPosition THEN 
 			iPosition := iPosition + 1;
 			iStep := 999;
 		END_IF
 	
 	999: //finish
-		Station.stAutoCmd.bIntakeLift_DOWN := FALSE;
-		Station.stAutoCmd.bIntakeLift_UP := FALSE;
-		Station.stAutoCmd.bIntakeLift_HOME := FALSE;
 		iStep := 0;
 
-END_CASE]]></ST>
+END_CASE
+IF NOT bInterlocksOK THEN
+	iStep:=iStepTemp;
+END_IF
+
+//Control
+Station.stAutoCmd.bIntakeLift_HOME := F_StepCMP(iStep, 200, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+Station.stAutoCmd.bIntakeLift_DOWN := F_StepCMP(iStep, 600, 0, 0, 0, 0, 0, 0, 0, 0, 0);]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>

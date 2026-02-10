@@ -111,6 +111,9 @@
     <Compile Include="FBs\FB_TONP.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Functions\F_StepCMP.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Functions\F_TimerToString.TcPOU">
       <SubType>Code</SubType>
     </Compile>
@@ -165,10 +168,25 @@
     <Compile Include="POUs\P99_HMIControl.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="POUs\Sequences\Camera.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="POUs\Sequences\Conveyor.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="POUs\Sequences\Feeder.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Sequences\Greaser.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="POUs\Sequences\IntakeBuffer.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Sequences\OutletBuffer.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Sequences\Robot.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\Simulation\Service_sim.TcPOU">

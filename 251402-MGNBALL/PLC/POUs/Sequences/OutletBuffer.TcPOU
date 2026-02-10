@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="OutletBuffer" Id="{570b8cad-1b05-4587-888b-580862a1b03d}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM OutletBuffer
+VAR
+	bInterlocksOK	:BOOL;
+	iPosition		:UINT;
+	rNextPosition	:REAL;
+END_VAR
+VAR_OUTPUT
+	iStep			:UINT;
+	iStepTemp		:UINT;
+END_VAR
+VAR_INPUT
+	rRealPosition	:REAL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[CASE iPosition OF
+	0:
+
+		rNextPosition := 10;
+	1:
+	
+		rNextPosition := 9;
+	2:
+
+		rNextPosition := 8;
+	3:
+
+		rNextPosition := 7;
+	4:
+
+		rNextPosition := 6;
+	5:
+
+		rNextPosition := 5;
+	6:
+	
+		rNextPosition := 4;
+	7:
+		rNextPosition := 3;
+	8:
+		
+		rNextPosition := 2;
+	9:
+		
+		rNextPosition := 1;
+	10:
+		
+		rNextPosition := 10;
+		
+END_CASE
+
+bInterlocksOK := TRUE;
+
+iStepTemp:=iStep;
+CASE iStep OF
+	0: //Hold
+		IF Station.stControl.bRunning THEN
+			iStep := 100;
+		END_IF
+		
+	100: //Waiting for conveyor
+		IF Conveyor.iStep = 999 AND IN.bSensor_TrayOutReady THEN
+			iStep := 200;
+		END_IF
+		
+	200: //Move UP
+		IF rRealPosition = rNextPosition THEN
+			iPosition := iPosition + 1;
+			iStep := 300;
+		END_IF
+		
+	300: //Check if homing required
+	 	IF IN.bIntakeBuffer_Homed THEN
+			iStep := 400;
+		ELSE
+			iStep := 999;
+		END_IF
+		
+	400: //Homing
+		IF IN.bOutletBuffer_Homed THEN
+			iStep := 999;
+		END_IF
+		
+	999: //finish
+		iStep := 0;
+
+END_CASE
+IF NOT bInterlocksOK THEN
+	iStep:=iStepTemp;
+END_IF
+
+//Control
+Station.stAutoCmd.bIntakeLift_HOME := F_StepCMP(iStep, 400, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+Station.stAutoCmd.bOutletLift_UP := F_StepCMP(iStep, 200, 0, 0, 0, 0, 0, 0, 0, 0, 0);]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

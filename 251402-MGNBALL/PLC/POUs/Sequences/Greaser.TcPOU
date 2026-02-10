@@ -1,17 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1">
-  <POU Name="Conveyor" Id="{d15df29a-e0d5-4d06-b61c-29e9ebb3fb51}" SpecialFunc="None">
-    <Declaration><![CDATA[PROGRAM Conveyor
+  <POU Name="Greaser" Id="{3f93551f-add1-4415-83f8-744ffed6f906}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM Greaser
 VAR
 	bInterlocksOK	:BOOL;
+	tonGreasingTime	:TON;
 END_VAR
 VAR_OUTPUT
 	iStep			:UINT;
 	iStepTemp		:UINT;
 END_VAR
+
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[bInterlocksOK := TRUE;
+tonGreasingTime(IN:=(iStep=200), PT:=T#500MS);
 
 iStepTemp:=iStep;
 CASE iStep OF
@@ -20,19 +23,13 @@ CASE iStep OF
 			iStep := 100;
 		END_IF
 		
-	100: //Waiting for Intake Buffer
-		IF IntakeBuffer.iStep = 500 THEN
+	100: //Waiting for robot
+		IF Robot.iStep = 900 OR Robot.iStep = 1100 THEN
 			iStep := 200;
 		END_IF
 
-	200: //Drive
-		Station.stAutoCmd.bConveyorJog := TRUE;
-		IF IN.bConveyor_Drive THEN
-			iStep := 300;
-		END_IF
-	
-	300: //Driving
-		IF IN.bSensor_TrayInPick AND IN.bSensor_TrayInPlace THEN
+	200: //Pulse
+		IF tonGreasingTime.Q THEN
 			iStep := 999;
 		END_IF
 
@@ -44,7 +41,7 @@ IF NOT bInterlocksOK THEN
 END_IF
 
 //Control
-Station.stAutoCmd.bConveyorJog := F_StepCMP(iStep, 200, 300, 0, 0, 0, 0, 0, 0, 0, 0);
+Station.stAutoCmd.bGreasing_Pulse := F_StepCMP(iStep, 200, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 ]]></ST>
     </Implementation>
   </POU>

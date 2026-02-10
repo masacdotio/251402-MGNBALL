@@ -16,6 +16,7 @@ STRUCT
 	//Robot cmd
 	bRobot_START		:BOOL;
 	iRobot_JobNumber	:USINT;
+	bRobot_Gripper		:BYTE;
 	//Conveyor cmd
 	bConveyorJog		:BOOL;
 	bClampPick			:BOOL;

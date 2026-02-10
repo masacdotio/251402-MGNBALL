@@ -9,14 +9,14 @@ VAR_INPUT
 
 	i_bDone				:BOOL;						//Job done
 	i_bBusy				:BOOL;						//Device busy
-	i_Args				:ARRAY [0..13] OF BOOL;		//Device arguments
+	i_Args				:BYTE;						//Device arguments
 END_VAR
 VAR_OUTPUT
 	q_bTrigger			:BOOL;						//Activate job
 	q_bPLC_Ready		:BOOL := FALSE;				//Handshake initiated
 	q_Args				:ARRAY [0..9] OF BOOL;		//Information for device
 	
-	q_Result			:ARRAY [0..13] OF BOOL;		//Adjust for possible results
+	q_Result			:BYTE;		//Adjust for possible results
 	q_bTimeout			:BOOL;
 END_VAR
 VAR
@@ -62,10 +62,9 @@ END_IF
 //Device response:
 IF q_bPLC_Ready THEN
 	MEMSET(destAddr:=ADR(q_Result), fillByte:=0, n:=SIZEOF(q_Result));
-	IF i_bDone THEN FOR i := 0 TO 13 DO
-		q_Result[i] := i_Args[i];
-	END_FOR 
-	q_bPLC_Ready := FALSE;
+	IF i_bDone THEN 
+		q_Result := i_Args;
+		q_bPLC_Ready := FALSE;
 	END_IF
 END_IF
 //Timeout

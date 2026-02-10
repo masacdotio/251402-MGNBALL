@@ -464,7 +464,7 @@
                 ]
             },
             "NAME": "TcHmiSqliteHistorize",
-            "PATH": "..\\..\\..\\..\\..\\..\\Magna\\Ball Assembly\\Project\\MAGNA_BallAssembly\\Packages\\Beckhoff.TwinCAT.HMI.SqliteHistorize.22.0.7563\\runtimes\\win-x64\\native\\",
+            "PATH": "..\\..\\Packages\\Beckhoff.TwinCAT.HMI.SqliteHistorize.22.0.7563\\runtimes\\win-x64\\native\\",
             "REQUIRED": false,
             "STARTUPTYPE": 1
         },

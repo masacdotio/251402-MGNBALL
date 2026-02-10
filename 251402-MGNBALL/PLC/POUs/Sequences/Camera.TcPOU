@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1">
-  <POU Name="Conveyor" Id="{d15df29a-e0d5-4d06-b61c-29e9ebb3fb51}" SpecialFunc="None">
-    <Declaration><![CDATA[PROGRAM Conveyor
+  <POU Name="Camera" Id="{54199d39-c267-4d30-af21-1087ced7f3b2}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM Camera
 VAR
 	bInterlocksOK	:BOOL;
 END_VAR
@@ -20,22 +20,17 @@ CASE iStep OF
 			iStep := 100;
 		END_IF
 		
-	100: //Waiting for Intake Buffer
-		IF IntakeBuffer.iStep = 500 THEN
+	100: //Waiting for Robot
+		IF Robot.iStep = 1300 THEN
 			iStep := 200;
 		END_IF
 
-	200: //Drive
-		Station.stAutoCmd.bConveyorJog := TRUE;
-		IF IN.bConveyor_Drive THEN
-			iStep := 300;
-		END_IF
-	
-	300: //Driving
-		IF IN.bSensor_TrayInPick AND IN.bSensor_TrayInPlace THEN
+	200: //Inspect BBs
+		Station.stAutoCmd.iFixedCamera_Job := 1;
+		IF P05_DeviceControl.fbCamera.q_Args[1] THEN
 			iStep := 999;
 		END_IF
-
+	
 	999: //finish
 		iStep := 0;
 END_CASE
