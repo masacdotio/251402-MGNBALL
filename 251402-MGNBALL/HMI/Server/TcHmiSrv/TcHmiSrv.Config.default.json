@@ -152,6 +152,58 @@
                 ],
                 "type": "object"
             },
+            "ADS-PLC1.ST_Station_HMI": {
+                "additionalProperties": false,
+                "properties": {
+                    "bInterlocksOK": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:general#/definitions/BOOL"
+                            },
+                            {
+                                "propertyOrder": 2
+                            }
+                        ]
+                    },
+                    "bReset": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:general#/definitions/BOOL"
+                            },
+                            {
+                                "propertyOrder": 3
+                            }
+                        ]
+                    },
+                    "iStatus": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:general#/definitions/UINT"
+                            },
+                            {
+                                "propertyOrder": 4
+                            }
+                        ]
+                    },
+                    "iStep": {
+                        "allOf": [
+                            {
+                                "$ref": "tchmi:general#/definitions/UINT"
+                            },
+                            {
+                                "propertyOrder": 1
+                            }
+                        ]
+                    }
+                },
+                "required": [
+                    "iStep",
+                    "bInterlocksOK",
+                    "bReset",
+                    "iStatus"
+                ],
+                "type": "object"
+            },
             "ADS-PLC1.ST_Time": {
                 "additionalProperties": false,
                 "properties": {
@@ -1717,6 +1769,16 @@
                         "propertyOrder": 2
                     }
                 ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.HMI.stStation": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::HMI::stStation",
+            "SCHEMA": {
+                "$ref": "tchmi:server#/definitions/ADS-PLC1.ST_Station_HMI"
             },
             "USEMAPPING": true
         },
@@ -6321,6 +6383,7 @@
                 "ADS.PLC1.HMI.stFromHMI.stRobot.bPowerOn": 3,
                 "ADS.PLC1.HMI.stFromHMI.stRobot.bStart": 3,
                 "ADS.PLC1.HMI.stFromHMI.stRobot.bStop": 3,
+                "ADS.PLC1.HMI.stStation": 3,
                 "ADS.PLC1.HMI.stToHMI.bConveyorJog": 3,
                 "ADS.PLC1.HMI.stToHMI.stBatch.bBatchClose": 3,
                 "ADS.PLC1.HMI.stToHMI.stBatch.bBatchOpen": 3,

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <DUT Name="ST_Station_HMI" Id="{afa8b352-23ca-411a-88f0-c51e8f2209d8}">
+    <Declaration><![CDATA[TYPE ST_Station_HMI :
+STRUCT
+	iStep			:UINT;
+	bInterlocksOK	:BOOL;
+	bReset			:BOOL;
+	iStatus			:UINT;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

@@ -1,4 +1,66 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "definitions": {}
+  "definitions": {
+    "Station": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "Content\\UserControls\\Station.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/Station"
+    },
+    "ST_Station_HMI": {
+      "additionalProperties": {},
+      "properties": {
+        "bInterlocksOK": {
+          "allOf": [
+            {
+              "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            {
+              "propertyOrder": 2
+            }
+          ]
+        },
+        "bReset": {
+          "allOf": [
+            {
+              "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            {
+              "propertyOrder": 3
+            }
+          ]
+        },
+        "iStatus": {
+          "allOf": [
+            {
+              "$ref": "tchmi:general#/definitions/UINT"
+            },
+            {
+              "propertyOrder": 4
+            }
+          ]
+        },
+        "iStep": {
+          "allOf": [
+            {
+              "$ref": "tchmi:general#/definitions/UINT"
+            },
+            {
+              "propertyOrder": 1
+            }
+          ]
+        }
+      },
+      "type": "object",
+      "required": [
+        "iStep",
+        "bInterlocksOK",
+        "bReset",
+        "iStatus"
+      ],
+      "$id": "tchmi:server#/definitions/ADS-PLC1.ST_Station_HMI"
+    }
+  }
 }

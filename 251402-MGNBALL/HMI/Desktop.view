@@ -1,5 +1,5 @@
 <div id="Desktop_1" data-tchmi-type="TcHmi.Controls.System.TcHmiView" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width-mode="Value" data-tchmi-min-width="1336" data-tchmi-min-width-unit="px" data-tchmi-height-mode="Value" data-tchmi-min-height="768" data-tchmi-min-height-unit="px" data-tchmi-width="1336" data-tchmi-height="768" data-tchmi-creator-viewport-height="768" data-tchmi-creator-viewport-width="1336" data-tchmi-creator-locked="True">
-<div id="TcHmiRegion_Main_1" data-tchmi-type="TcHmi.Controls.System.TcHmiRegion" data-tchmi-height="530" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-top="145" data-tchmi-top-unit="px" data-tchmi-width="1336" data-tchmi-width-unit="px">
+<div id="TcHmiRegion_Main_1" data-tchmi-type="TcHmi.Controls.System.TcHmiRegion" data-tchmi-height="530" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-top="145" data-tchmi-top-unit="px" data-tchmi-width="1336" data-tchmi-width-unit="px" data-tchmi-target-content="Content/Main/Machine_View.content">
 
 
 
@@ -10,7 +10,7 @@
     "actions": [
       {
         "objectType": "SwitchCase",
-        "active": true,
+        "active": false,
         "compare": {
           "objectType": "Symbol",
           "valueType": "tchmi:general#/definitions/USINT",
@@ -201,11 +201,105 @@
     "event": "%s%ADS.PLC1.HMI.iPopupMenu%/s%",
     "actions": [
       {
+        "objectType": "SwitchCase",
+        "active": true,
+        "compare": {
+          "objectType": "Symbol",
+          "valueType": "tchmi:general#/definitions/USINT",
+          "symbolExpression": "%s%ADS.PLC1.HMI.iPopupMenu%/s%"
+        },
+        "cases": [
+          {
+            "caseValue": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/USINT",
+              "value": 10
+            },
+            "actions": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctx%owner::TargetContent%/ctx%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/ContentPath",
+                  "value": "Content/PopUp/Robot.content"
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "caseValue": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/USINT",
+              "value": 20
+            },
+            "actions": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctx%owner::TargetContent%/ctx%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/ContentPath",
+                  "value": "Content/PopUp/Camera_Fixed.content"
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "caseValue": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/USINT",
+              "value": 30
+            },
+            "actions": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctx%owner::TargetContent%/ctx%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/ContentPath",
+                  "value": "Content/PopUp/Greaser.content"
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "caseValue": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/USINT",
+              "value": null
+            },
+            "actions": []
+          }
+        ],
+        "asyncWait": true
+      },
+      {
         "objectType": "Condition",
         "active": true,
         "parts": [
           {
             "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/USINT",
+                  "symbolExpression": "%s%ADS.PLC1.HMI.iPopupMenu%/s%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/USINT",
+                  "value": 0
+                },
+                "compareOperator": "!=",
+                "logic": null
+              },
               {
                 "compare1": {
                   "objectType": "Symbol",
@@ -218,141 +312,19 @@
                   "value": 0
                 },
                 "compareOperator": "==",
-                "logic": null
+                "logic": "AND"
               }
             ],
             "then": [
               {
-                "objectType": "SwitchCase",
+                "objectType": "WriteToSymbol",
                 "active": true,
-                "compare": {
-                  "objectType": "Symbol",
-                  "valueType": "tchmi:general#/definitions/USINT",
-                  "symbolExpression": "%s%ADS.PLC1.HMI.iPopupMenu%/s%"
+                "symbolExpression": "%ctx%owner::Visibility%/ctx%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Visible"
                 },
-                "cases": [
-                  {
-                    "caseValue": {
-                      "objectType": "StaticValue",
-                      "valueType": "tchmi:general#/definitions/USINT",
-                      "value": 10
-                    },
-                    "actions": [
-                      {
-                        "objectType": "WriteToSymbol",
-                        "active": true,
-                        "symbolExpression": "%ctx%owner::TargetContent%/ctx%",
-                        "value": {
-                          "objectType": "StaticValue",
-                          "valueType": "tchmi:framework#/definitions/ContentPath",
-                          "value": "Content/PopUp/Robot.content"
-                        },
-                        "asyncWait": true
-                      },
-                      {
-                        "objectType": "WriteToSymbol",
-                        "active": true,
-                        "symbolExpression": "%ctx%owner::Visibility%/ctx%",
-                        "value": {
-                          "objectType": "StaticValue",
-                          "valueType": "tchmi:framework#/definitions/Visibility",
-                          "value": "Visible"
-                        },
-                        "asyncWait": true
-                      }
-                    ]
-                  },
-                  {
-                    "caseValue": {
-                      "objectType": "StaticValue",
-                      "valueType": "tchmi:general#/definitions/USINT",
-                      "value": 0
-                    },
-                    "actions": [
-                      {
-                        "objectType": "WriteToSymbol",
-                        "active": true,
-                        "symbolExpression": "%ctx%owner::Visibility%/ctx%",
-                        "value": {
-                          "objectType": "StaticValue",
-                          "valueType": "tchmi:framework#/definitions/Visibility",
-                          "value": "Collapsed"
-                        },
-                        "asyncWait": true
-                      }
-                    ]
-                  },
-                  {
-                    "caseValue": {
-                      "objectType": "StaticValue",
-                      "valueType": "tchmi:general#/definitions/USINT",
-                      "value": 20
-                    },
-                    "actions": [
-                      {
-                        "objectType": "WriteToSymbol",
-                        "active": true,
-                        "symbolExpression": "%ctx%owner::TargetContent%/ctx%",
-                        "value": {
-                          "objectType": "StaticValue",
-                          "valueType": "tchmi:framework#/definitions/ContentPath",
-                          "value": "Content/PopUp/Camera_Fixed.content"
-                        },
-                        "asyncWait": true
-                      },
-                      {
-                        "objectType": "WriteToSymbol",
-                        "active": true,
-                        "symbolExpression": "%ctx%owner::Visibility%/ctx%",
-                        "value": {
-                          "objectType": "StaticValue",
-                          "valueType": "tchmi:framework#/definitions/Visibility",
-                          "value": "Visible"
-                        },
-                        "asyncWait": true
-                      }
-                    ]
-                  },
-                  {
-                    "caseValue": {
-                      "objectType": "StaticValue",
-                      "valueType": "tchmi:general#/definitions/USINT",
-                      "value": 30
-                    },
-                    "actions": [
-                      {
-                        "objectType": "WriteToSymbol",
-                        "active": true,
-                        "symbolExpression": "%ctx%owner::TargetContent%/ctx%",
-                        "value": {
-                          "objectType": "StaticValue",
-                          "valueType": "tchmi:framework#/definitions/ContentPath",
-                          "value": "Content/PopUp/Greaser.content"
-                        },
-                        "asyncWait": true
-                      },
-                      {
-                        "objectType": "WriteToSymbol",
-                        "active": true,
-                        "symbolExpression": "%ctx%owner::Visibility%/ctx%",
-                        "value": {
-                          "objectType": "StaticValue",
-                          "valueType": "tchmi:framework#/definitions/Visibility",
-                          "value": "Visible"
-                        },
-                        "asyncWait": true
-                      }
-                    ]
-                  },
-                  {
-                    "caseValue": {
-                      "objectType": "StaticValue",
-                      "valueType": "tchmi:general#/definitions/USINT",
-                      "value": null
-                    },
-                    "actions": []
-                  }
-                ],
                 "asyncWait": true
               }
             ]
@@ -381,11 +353,105 @@
     "event": "%s%ADS.PLC1.HMI.iMenu%/s%",
     "actions": [
       {
+        "objectType": "SwitchCase",
+        "active": true,
+        "compare": {
+          "objectType": "Symbol",
+          "valueType": "tchmi:general#/definitions/USINT",
+          "symbolExpression": "%s%ADS.PLC1.HMI.iPopupMenu%/s%"
+        },
+        "cases": [
+          {
+            "caseValue": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/USINT",
+              "value": 10
+            },
+            "actions": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctx%owner::TargetContent%/ctx%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/ContentPath",
+                  "value": "Content/PopUp/Robot.content"
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "caseValue": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/USINT",
+              "value": 20
+            },
+            "actions": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctx%owner::TargetContent%/ctx%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/ContentPath",
+                  "value": "Content/PopUp/Camera_Fixed.content"
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "caseValue": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/USINT",
+              "value": 30
+            },
+            "actions": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctx%owner::TargetContent%/ctx%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/ContentPath",
+                  "value": "Content/PopUp/Greaser.content"
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "caseValue": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/USINT",
+              "value": null
+            },
+            "actions": []
+          }
+        ],
+        "asyncWait": true
+      },
+      {
         "objectType": "Condition",
         "active": true,
         "parts": [
           {
             "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/USINT",
+                  "symbolExpression": "%s%ADS.PLC1.HMI.iPopupMenu%/s%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/USINT",
+                  "value": 0
+                },
+                "compareOperator": "!=",
+                "logic": null
+              },
               {
                 "compare1": {
                   "objectType": "Symbol",
@@ -397,11 +463,26 @@
                   "valueType": "tchmi:general#/definitions/USINT",
                   "value": 0
                 },
-                "compareOperator": "!=",
-                "logic": null
+                "compareOperator": "==",
+                "logic": "AND"
               }
             ],
             "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctx%owner::Visibility%/ctx%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Visible"
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": [
               {
                 "objectType": "WriteToSymbol",
                 "active": true,
@@ -414,9 +495,6 @@
                 "asyncWait": true
               }
             ]
-          },
-          {
-            "else": []
           }
         ],
         "asyncWait": true

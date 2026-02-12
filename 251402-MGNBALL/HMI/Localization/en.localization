@@ -66,6 +66,16 @@
     "Trends_Shift1": "First shift",
     "Trends_Shift2": "Second shift",
     "Trends_Shift3": "Third shift",
-    "Counter_Shift": "Shift counter"
+    "Counter_Shift": "Shift counter",
+    "Reset": "Reset",
+    "Interlocks": "Interlocks",
+    "Satisfied": "Satisfied",
+    "Unsatisfied": "Unsatisfied",
+    "StationStep_0": "Hold",
+    "Status_NotActive": "Not active",
+    "Status_Waiting": "Waiting",
+    "Status_Error": "ERROR",
+    "Status_Active": "Actite",
+    "LastTray": "Last tray"
   }
 }

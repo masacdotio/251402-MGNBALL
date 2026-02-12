@@ -26,7 +26,6 @@ CASE iStep OF
 		END_IF
 
 	200: //Drive
-		Station.stAutoCmd.bConveyorJog := TRUE;
 		IF IN.bConveyor_Drive THEN
 			iStep := 300;
 		END_IF
@@ -45,6 +44,7 @@ END_IF
 
 //Control
 Station.stAutoCmd.bConveyorJog := F_StepCMP(iStep, 200, 300, 0, 0, 0, 0, 0, 0, 0, 0);
+//ADD Clamps control
 ]]></ST>
     </Implementation>
   </POU>

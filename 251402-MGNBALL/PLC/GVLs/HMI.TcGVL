@@ -7,6 +7,7 @@ VAR_GLOBAL
 	stFromHMI : ST_FromHMI; 
 	iMenu : USINT;
 	iPopupMenu : USINT;
+	stStation	:ST_Station_HMI;
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

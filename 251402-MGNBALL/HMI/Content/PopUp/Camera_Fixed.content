@@ -164,8 +164,6 @@
   "bottom": "Solid"
 }
 </script>
-<div id="Image_Camera_3" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="123" data-tchmi-height-unit="px" data-tchmi-left="185" data-tchmi-left-unit="px" data-tchmi-src="Images/PID/Cognex.png" data-tchmi-top="88" data-tchmi-top-unit="px" data-tchmi-width="215" data-tchmi-width-unit="px">
-</div>
 <div id="TcHmiTextblock_1366" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="41" data-tchmi-height-unit="px" data-tchmi-text="%l%CMR_Status%/l%" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="17" data-tchmi-text-horizontal-alignment="Right" data-tchmi-text-vertical-alignment="Center" data-tchmi-bottom="130" data-tchmi-left="9">
 </div>
 <div id="TcHmiTextblock_1367" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="41" data-tchmi-height-unit="px" data-tchmi-width="270" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="17" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-left="169" data-tchmi-bottom="130" data-tchmi-text="%s%ADS.PLC1.HMI.stToHMI.stFixedCamera.sCameraStatus%/s%" data-tchmi-text-font-weight="Bold">
@@ -390,7 +388,7 @@
 ]
 </script>
 </div>
-<div id="Camera_CaptureButton" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-top="126" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="17" data-tchmi-text="%l%CMR_Image%/l%" data-tchmi-right="289" data-tchmi-icon="Images/Icons/Icon_camera.png" data-tchmi-icon-width="25" data-tchmi-icon-height="25" data-tchmi-icon-horizontal-alignment="Left" data-tchmi-zindex="4" data-tchmi-state-symbol="%s%ADS.PLC1.HMI.stFromHMI.bFixedCameraCapture%/s%">
+<div id="Camera_CaptureButton" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-top="126" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="17" data-tchmi-text="%l%CMR_Image%/l%" data-tchmi-right="150" data-tchmi-icon="Images/Icons/Icon_camera.png" data-tchmi-icon-width="25" data-tchmi-icon-height="25" data-tchmi-icon-horizontal-alignment="Left" data-tchmi-zindex="4" data-tchmi-state-symbol="%s%ADS.PLC1.HMI.stFromHMI.bFixedCameraCapture%/s%">
 <script data-tchmi-target-attribute="data-tchmi-border-radius" type="application/json">
 {
   "topLeft": 12.0,

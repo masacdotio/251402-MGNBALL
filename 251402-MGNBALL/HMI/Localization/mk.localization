@@ -65,6 +65,16 @@
     "Trends_Shift1": "Прва смена",
     "Trends_Shift2": "Втора смена",
     "Trends_Shift3": "Трета смена",
-    "Counter_Shift": "Бројач по смена"
+    "Counter_Shift": "Бројач по смена",
+    "Reset": "Ресет",
+    "Interlocks": "Услови",
+    "Satisfied": "Задоволени",
+    "Unsatisfied": "Не задоволени",
+    "StationStep_0": "Чека",
+    "Status_NotActive": "Не активна",
+    "Status_Waiting": "Чека",
+    "Status_Error": "ГРЕШКА",
+    "Status_Active": "Активна",
+    "LastTray": "Последен треј"
   }
 }

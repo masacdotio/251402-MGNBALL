@@ -132,6 +132,7 @@
   <Target Name="ReBuild" DependsOnTargets="Clean; Build" />
   <ItemGroup>
     <Folder Include="Content\Main" />
+    <Folder Include="Content\UserControls" />
     <Folder Include="Content\PopUp" />
     <Folder Include="Fonts\" />
     <Folder Include="Images" />
@@ -168,6 +169,12 @@
     <Content Include="Content\Main\Home.content">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Content\Main\LastTray.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\Main\Machine_View.content">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Content\Main\Trends.content">
       <SubType>Content</SubType>
     </Content>
@@ -185,6 +192,13 @@
     </Content>
     <Content Include="Content\PopUp\Robot.content">
       <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\UserControls\Station.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\UserControls\Station.usercontrol.json">
+      <SubType>Content</SubType>
+      <DependentUpon>Content\UserControls\Station.usercontrol</DependentUpon>
     </Content>
     <Content Include="Images\Icons\Icon_alarm.png">
       <SubType>Content</SubType>
