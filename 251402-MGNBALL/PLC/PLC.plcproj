@@ -198,9 +198,6 @@
     <Compile Include="POUs\Simulation\Simulation.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="POUs\Simulation\Trend_sim.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DUTs" />

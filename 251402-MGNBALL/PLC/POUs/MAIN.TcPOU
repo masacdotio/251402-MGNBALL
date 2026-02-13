@@ -19,7 +19,7 @@ P99_HMIControl();
 
 //Simulations
 Service_sim();
-Trend_sim();
+
 
 
 bFirstCycle := FALSE;]]></ST>

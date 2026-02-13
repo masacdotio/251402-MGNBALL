@@ -14,6 +14,7 @@ STRUCT
 	stBatch				: ST_Batch_HMI;
 	stCounter			:ARRAY [1..4] OF ST_Counter_HMI;
 	stGreasing			: ST_Greasing_HMI;
+	iSelectedTray		: USINT;
 END_STRUCT
 END_TYPE
 ]]></Declaration>

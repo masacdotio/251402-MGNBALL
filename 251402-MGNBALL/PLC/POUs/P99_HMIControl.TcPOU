@@ -4,6 +4,7 @@
     <Declaration><![CDATA[PROGRAM P99_HMIControl
 VAR
 	i:UDINT;
+	j:UDINT;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -59,7 +60,15 @@ HMI.stToHMI.stRobot.bPowerOff := Station.stRobotControl.bPoweredOff OR (Station.
 HMI.stToHMI.stRobot.bInit := Station.stRobotControl.bInit AND GV.stTime.bClock_500ms;
 HMI.stToHMI.stRobot.bStart := Station.stRobotControl.bRunning;
 HMI.stToHMI.stRobot.bStop := Station.stRobotControl.bStopped;
-HMI.stToHMI.stRobot.iStep := Station.stRobotControl.iStep;
+HMI.stToHMI.stRobot.bPause := Station.stRobotControl.bPaused;
+//Robot station:
+HMI.stRobot.bInterlocksOK := Station.stRobotControl.bInterlockOK;
+HMI.stRobot.iStep := Station.stRobotControl.iStep;
+IF Station.stCommand.iRobot_JobNumber = 0 THEN
+	HMI.stRobot.iStatus := 0;
+ELSE //if not error and not step waiting
+	HMI.stRobot.iStatus := 3;
+END_IF
 //HMI.stToHMI.stRobot.sStatus := Device.status
 
 //--------------Lifts----------------------//
@@ -138,11 +147,25 @@ Station.stManCmd.tGreasing_Time := UINT_TO_TIME(HMI.stFromHMI.stGreasing.iTime);
 Station.stManCmd.bGreasing_Pulse := HMI.stFromHMI.stGreasing.bPulse;
 Station.stManCmd.bGreasing_Purge := HMI.stFromHMI.stGreasing.bPurge;
 
+//---------------LastTray-------------------//
+IF HMI.stFromHMI.iSelectedTray < 1 THEN
+	HMI.stFromHMI.iSelectedTray := 1;
+END_IF
+IF HMI.stFromHMI.iSelectedTray >10 THEN
+	HMI.stFromHMI.iSelectedTray := 10;
+END_IF
+HMI.stLastTray := GV.aTrays[HMI.stFromHMI.iSelectedTray];
+
 //----------------Sensors------------------//
 HMI.stToHMI.stPID.bTray_Ready_Left := IN.bSensor_TrayInReady;
 HMI.stToHMI.stPID.bTray_Ready_Right := IN.bSensor_TrayOutReady;
 HMI.stToHMI.stPID.bTray_PickPosition := IN.bSensor_TrayInPick;
 HMI.stToHMI.stPID.bTray_PlacePosition := IN.bSensor_TrayInPlace;
+
+//---------------POP-ups--------------------//
+IF HMI.iMenu <> 0 THEN
+	HMI.iPopupMenu := 0;
+END_IF
 
 //---------------------------------------BATCH page----------------------------------------//
 

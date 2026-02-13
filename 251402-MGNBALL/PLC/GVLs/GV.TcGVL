@@ -6,7 +6,6 @@ VAR_GLOBAL
 	//Time
 	stTime : ST_Time;
 	bUPSDetect : BOOL;
-	aPoints		:ARRAY[1..2, 1..24] OF ST_Point;
 END_VAR
 
 VAR_GLOBAL PERSISTENT
@@ -19,6 +18,7 @@ VAR_GLOBAL PERSISTENT
 	cntShift2					:FB_Counter;
 	cntShift3					:FB_Counter;
 	stSettings					:ST_Settings;
+	aTrays						:ARRAY[1..10] OF ARRAY[1..14,1..7] OF BOOL;
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

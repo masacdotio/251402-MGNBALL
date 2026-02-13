@@ -3,11 +3,18 @@
   <GVL Name="HMI" Id="{b4524cf6-01bd-4417-9a57-24146ccc07e2}">
     <Declaration><![CDATA[{attribute 'qualified_only'}
 VAR_GLOBAL
-	stToHMI : ST_ToHMI;
-	stFromHMI : ST_FromHMI; 
-	iMenu : USINT;
-	iPopupMenu : USINT;
-	stStation	:ST_Station_HMI;
+	stToHMI 			:ST_ToHMI;
+	stFromHMI 			:ST_FromHMI; 
+	iMenu 				:USINT;
+	iPopupMenu 			:USINT;
+	stGreasing			:ST_Station_HMI;
+	stInletBuffer		:ST_Station_HMI;
+	stOutletBuffer		:ST_Station_HMI;
+	stConveyor			:ST_Station_HMI;
+	stRobot				:ST_Station_HMI;
+	stCamera			:ST_Station_HMI;
+	stFeeder			:ST_Station_HMI;
+	stLastTray			:ARRAY[1..14,1..7] OF BOOL;
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

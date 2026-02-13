@@ -6,6 +6,7 @@ STRUCT
 	bStart : BOOL;
 	bStop : BOOL;
 	bInit : BOOL;
+	bPause	: BOOL;
 	bPowerOn : BOOL;
 	bPowerOff : BOOL;
 	

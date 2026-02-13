@@ -1,6 +1,6 @@
 <div id="Machine_View" data-tchmi-type="TcHmi.Controls.System.TcHmiContent" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="1336" data-tchmi-height="530">
 
-<div id="Station_1" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="230" data-tchmi-height-unit="px" data-tchmi-ipopupaddress="10" data-tchmi-left="423" data-tchmi-left-unit="px" data-tchmi-target-user-control="Content/UserControls/Station.usercontrol" data-tchmi-top="31" data-tchmi-top-unit="px" data-tchmi-width="250" data-tchmi-width-unit="px" data-tchmi-plc_interface="%s%ADS.PLC1.HMI.stStation%/s%" data-tchmi-sname="Robot">
+<div id="Station_1" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="230" data-tchmi-height-unit="px" data-tchmi-ipopupaddress="10" data-tchmi-left="413" data-tchmi-left-unit="px" data-tchmi-target-user-control="Content/UserControls/Station.usercontrol" data-tchmi-top="31" data-tchmi-top-unit="px" data-tchmi-width="250" data-tchmi-width-unit="px" data-tchmi-plc_interface="%s%ADS.PLC1.HMI.stStation%/s%" data-tchmi-sname="Robot" data-tchmi-creator-locked="True">
 
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
@@ -139,13 +139,20 @@
           "symbolExpression": "%ctx%owner::iPopupAddress%/ctx%"
         },
         "asyncWait": true
+      },
+      {
+        "objectType": "ControlApiFunction",
+        "active": true,
+        "control": "TcHmiPopup_1",
+        "fn": "open",
+        "asyncWait": true
       }
     ]
   }
 ]
 </script>
 </div>
-<div id="Station_2" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="230" data-tchmi-height-unit="px" data-tchmi-ipopupaddress="10" data-tchmi-left="943" data-tchmi-left-unit="px" data-tchmi-target-user-control="Content/UserControls/Station.usercontrol" data-tchmi-top="271" data-tchmi-top-unit="px" data-tchmi-width="250" data-tchmi-width-unit="px" data-tchmi-plc_interface="%s%ADS.PLC1.HMI.stStation%/s%" data-tchmi-sname="Outlet buffer">
+<div id="Station_2" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="230" data-tchmi-height-unit="px" data-tchmi-ipopupaddress="10" data-tchmi-left="933" data-tchmi-left-unit="px" data-tchmi-target-user-control="Content/UserControls/Station.usercontrol" data-tchmi-top="271" data-tchmi-top-unit="px" data-tchmi-width="250" data-tchmi-width-unit="px" data-tchmi-plc_interface="%s%ADS.PLC1.HMI.stStation%/s%" data-tchmi-sname="Outlet buffer" data-tchmi-creator-locked="True">
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
   {
@@ -269,11 +276,23 @@
         "asyncWait": true
       }
     ]
+  },
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onPressed",
+    "actions": [
+      {
+        "objectType": "ControlApiFunction",
+        "active": true,
+        "control": "TcHmiPopup_1",
+        "fn": "open",
+        "asyncWait": true
+      }
+    ]
   }
 ]
 </script>
 </div>
-<div id="Station_3" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="230" data-tchmi-height-unit="px" data-tchmi-ipopupaddress="10" data-tchmi-left="163" data-tchmi-left-unit="px" data-tchmi-target-user-control="Content/UserControls/Station.usercontrol" data-tchmi-top="271" data-tchmi-top-unit="px" data-tchmi-width="250" data-tchmi-width-unit="px" data-tchmi-plc_interface="%s%ADS.PLC1.HMI.stStation%/s%" data-tchmi-sname="Inlet buffer">
+<div id="Station_3" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="230" data-tchmi-height-unit="px" data-tchmi-ipopupaddress="10" data-tchmi-left="153" data-tchmi-left-unit="px" data-tchmi-target-user-control="Content/UserControls/Station.usercontrol" data-tchmi-top="271" data-tchmi-top-unit="px" data-tchmi-width="250" data-tchmi-width-unit="px" data-tchmi-plc_interface="%s%ADS.PLC1.HMI.stStation%/s%" data-tchmi-sname="Inlet buffer" data-tchmi-creator-locked="True">
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
   {
@@ -397,11 +416,23 @@
         "asyncWait": true
       }
     ]
+  },
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onPressed",
+    "actions": [
+      {
+        "objectType": "ControlApiFunction",
+        "active": true,
+        "control": "TcHmiPopup_1",
+        "fn": "open",
+        "asyncWait": true
+      }
+    ]
   }
 ]
 </script>
 </div>
-<div id="Station_4" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="230" data-tchmi-height-unit="px" data-tchmi-ipopupaddress="10" data-tchmi-left="423" data-tchmi-left-unit="px" data-tchmi-target-user-control="Content/UserControls/Station.usercontrol" data-tchmi-top="271" data-tchmi-top-unit="px" data-tchmi-width="250" data-tchmi-width-unit="px" data-tchmi-plc_interface="%s%ADS.PLC1.HMI.stStation%/s%" data-tchmi-sname="Conveyor">
+<div id="Station_4" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="230" data-tchmi-height-unit="px" data-tchmi-ipopupaddress="10" data-tchmi-left="413" data-tchmi-left-unit="px" data-tchmi-target-user-control="Content/UserControls/Station.usercontrol" data-tchmi-top="271" data-tchmi-top-unit="px" data-tchmi-width="250" data-tchmi-width-unit="px" data-tchmi-plc_interface="%s%ADS.PLC1.HMI.stStation%/s%" data-tchmi-sname="Conveyor" data-tchmi-creator-locked="True">
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
   {
@@ -525,11 +556,23 @@
         "asyncWait": true
       }
     ]
+  },
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onPressed",
+    "actions": [
+      {
+        "objectType": "ControlApiFunction",
+        "active": true,
+        "control": "TcHmiPopup_1",
+        "fn": "open",
+        "asyncWait": true
+      }
+    ]
   }
 ]
 </script>
 </div>
-<div id="Station_5" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="230" data-tchmi-height-unit="px" data-tchmi-ipopupaddress="10" data-tchmi-left="943" data-tchmi-left-unit="px" data-tchmi-target-user-control="Content/UserControls/Station.usercontrol" data-tchmi-top="31" data-tchmi-top-unit="px" data-tchmi-width="250" data-tchmi-width-unit="px" data-tchmi-plc_interface="%s%ADS.PLC1.HMI.stStation%/s%" data-tchmi-sname="Feeder">
+<div id="Station_5" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="230" data-tchmi-height-unit="px" data-tchmi-ipopupaddress="10" data-tchmi-left="933" data-tchmi-left-unit="px" data-tchmi-target-user-control="Content/UserControls/Station.usercontrol" data-tchmi-top="31" data-tchmi-top-unit="px" data-tchmi-width="250" data-tchmi-width-unit="px" data-tchmi-plc_interface="%s%ADS.PLC1.HMI.stStation%/s%" data-tchmi-sname="Feeder" data-tchmi-creator-locked="True">
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
   {
@@ -653,11 +696,23 @@
         "asyncWait": true
       }
     ]
+  },
+  {
+    "event": "%ctx%owner::Id|EventRegistrationMode=Resolve%/ctx%.onPressed",
+    "actions": [
+      {
+        "objectType": "ControlApiFunction",
+        "active": true,
+        "control": "TcHmiPopup_1",
+        "fn": "open",
+        "asyncWait": true
+      }
+    ]
   }
 ]
 </script>
 </div>
-<div id="Station_6" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="230" data-tchmi-height-unit="px" data-tchmi-ipopupaddress="20" data-tchmi-left="683" data-tchmi-left-unit="px" data-tchmi-target-user-control="Content/UserControls/Station.usercontrol" data-tchmi-top="31" data-tchmi-top-unit="px" data-tchmi-width="250" data-tchmi-width-unit="px" data-tchmi-plc_interface="%s%ADS.PLC1.HMI.stStation%/s%" data-tchmi-sname="Camera">
+<div id="Station_6" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="230" data-tchmi-height-unit="px" data-tchmi-ipopupaddress="20" data-tchmi-left="673" data-tchmi-left-unit="px" data-tchmi-target-user-control="Content/UserControls/Station.usercontrol" data-tchmi-top="31" data-tchmi-top-unit="px" data-tchmi-width="250" data-tchmi-width-unit="px" data-tchmi-plc_interface="%s%ADS.PLC1.HMI.stStation%/s%" data-tchmi-sname="Camera" data-tchmi-creator-locked="True">
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
   {
@@ -795,13 +850,20 @@
           "symbolExpression": "%ctx%owner::iPopupAddress%/ctx%"
         },
         "asyncWait": true
+      },
+      {
+        "objectType": "ControlApiFunction",
+        "active": true,
+        "control": "TcHmiPopup_1",
+        "fn": "open",
+        "asyncWait": true
       }
     ]
   }
 ]
 </script>
 </div>
-<div id="Station_7" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="230" data-tchmi-height-unit="px" data-tchmi-ipopupaddress="30" data-tchmi-left="163" data-tchmi-left-unit="px" data-tchmi-target-user-control="Content/UserControls/Station.usercontrol" data-tchmi-top="31" data-tchmi-top-unit="px" data-tchmi-width="250" data-tchmi-width-unit="px" data-tchmi-plc_interface="%s%ADS.PLC1.HMI.stStation%/s%" data-tchmi-sname="Greasing">
+<div id="Station_7" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="230" data-tchmi-height-unit="px" data-tchmi-ipopupaddress="30" data-tchmi-left="153" data-tchmi-left-unit="px" data-tchmi-target-user-control="Content/UserControls/Station.usercontrol" data-tchmi-top="31" data-tchmi-top-unit="px" data-tchmi-width="250" data-tchmi-width-unit="px" data-tchmi-plc_interface="%s%ADS.PLC1.HMI.stStation%/s%" data-tchmi-sname="Greasing" data-tchmi-creator-locked="True">
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
   {
@@ -939,12 +1001,151 @@
           "symbolExpression": "%ctx%owner::iPopupAddress%/ctx%"
         },
         "asyncWait": true
+      },
+      {
+        "objectType": "ControlApiFunction",
+        "active": true,
+        "control": "TcHmiPopup_1",
+        "fn": "open",
+        "asyncWait": true
       }
     ]
   }
 ]
 </script>
 </div>
-<div id="Place_Tray" data-tchmi-type="TcHmi.Controls.System.TcHmiRegion" data-tchmi-height="230" data-tchmi-height-unit="px" data-tchmi-left="683" data-tchmi-left-unit="px" data-tchmi-top="271" data-tchmi-top-unit="px" data-tchmi-width="250" data-tchmi-width-unit="px" data-tchmi-target-content="Content/Main/LastTray.content">
+<div id="Place_Tray" data-tchmi-type="TcHmi.Controls.System.TcHmiRegion" data-tchmi-height="230" data-tchmi-height-unit="px" data-tchmi-left="673" data-tchmi-left-unit="px" data-tchmi-top="271" data-tchmi-top-unit="px" data-tchmi-width="250" data-tchmi-width-unit="px" data-tchmi-target-content="Content/Main/LastTray.content" data-tchmi-creator-locked="True">
+</div>
+<div id="TcHmiPopup_1" data-tchmi-type="TcHmi.Controls.System.TcHmiPopup" data-tchmi-height="510" data-tchmi-height-unit="px" data-tchmi-left="413" data-tchmi-left-unit="px" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="510" data-tchmi-width-unit="px" data-tchmi-creator-locked="True" data-tchmi-creator-visibility="Collapsed" data-tchmi-restore-bounds="False" data-tchmi-target-file-host-keep-alive="False" data-tchmi-target-file-host-preload="False">
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "%s%ADS.PLC1.HMI.iPopupMenu%/s%",
+    "actions": [
+      {
+        "objectType": "SwitchCase",
+        "active": true,
+        "compare": {
+          "objectType": "Symbol",
+          "valueType": "tchmi:general#/definitions/USINT",
+          "symbolExpression": "%s%ADS.PLC1.HMI.iPopupMenu%/s%"
+        },
+        "cases": [
+          {
+            "caseValue": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/USINT",
+              "value": 10
+            },
+            "actions": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctx%owner::TargetFile%/ctx%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/TcHmi.Controls.System.TcHmiPopup.TargetFile",
+                  "value": {
+                    "path": "Content/PopUp/Robot.content"
+                  }
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "caseValue": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/USINT",
+              "value": 20
+            },
+            "actions": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctx%owner::TargetFile%/ctx%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/TcHmi.Controls.System.TcHmiPopup.TargetFile",
+                  "value": {
+                    "path": "Content/PopUp/Camera_Fixed.content"
+                  }
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "caseValue": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/USINT",
+              "value": 30
+            },
+            "actions": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctx%owner::TargetFile%/ctx%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/TcHmi.Controls.System.TcHmiPopup.TargetFile",
+                  "value": {
+                    "path": "Content/PopUp/Greaser.content"
+                  }
+                },
+                "asyncWait": true
+              }
+            ]
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "%s%ADS.PLC1.HMI.iMenu%/s%",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/USINT",
+                  "symbolExpression": "%s%ADS.PLC1.HMI.iMenu%/s%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/USINT",
+                  "value": 0
+                },
+                "compareOperator": "!=",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "ControlApiFunction",
+                "active": true,
+                "control": "TcHmiPopup_1",
+                "fn": "close",
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": []
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
 </div>
 </div>
