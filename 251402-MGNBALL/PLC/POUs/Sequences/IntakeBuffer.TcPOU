@@ -99,8 +99,8 @@ IF NOT bInterlocksOK THEN
 END_IF
 
 //Control
-Station.stAutoCmd.bIntakeLift_HOME := F_StepCMP(iStep, 200, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-Station.stAutoCmd.bIntakeLift_DOWN := F_StepCMP(iStep, 600, 0, 0, 0, 0, 0, 0, 0, 0, 0);]]></ST>
+//Station.stAutoCmd.bIntakeLift_HOME := F_StepCMP(iStep, 200, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+//Station.stAutoCmd.bIntakeLift_DOWN := F_StepCMP(iStep, 600, 0, 0, 0, 0, 0, 0, 0, 0, 0);]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>

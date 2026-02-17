@@ -227,7 +227,7 @@
 ]
 </script>
 </div>
-<div id="Service_Button" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="190" data-tchmi-left-unit="px" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="17" data-tchmi-state-symbol="%s%ADS.PLC1.HMI.stToHMI.stFooter.bService%/s%" data-tchmi-creator-locked="True" data-tchmi-text="%l%Service%/l%" data-tchmi-is-enabled="%s%ADS.PLC1.HMI.stToHMI.stFooter.bService_Enable%/s%" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-icon="Images/Icons/Icon_Service.png" data-tchmi-icon-width="25" data-tchmi-icon-height="25" data-tchmi-icon-horizontal-alignment="Left">
+<div id="Service_Button" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="190" data-tchmi-left-unit="px" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="17" data-tchmi-state-symbol="%s%ADS.PLC1.HMI.stToHMI.stFooter.bService%/s%" data-tchmi-creator-locked="True" data-tchmi-text="%l%Service%/l%" data-tchmi-is-enabled="%s%ADS.PLC1.HMI.stToHMI.stFooter.bService_Enable%/s%" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-icon="Images/Icons/Icon_Service.png" data-tchmi-icon-width="26" data-tchmi-icon-height="26" data-tchmi-icon-horizontal-alignment="Left">
 <script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
 {
   "color": "rgba(229, 229, 229, 1)"

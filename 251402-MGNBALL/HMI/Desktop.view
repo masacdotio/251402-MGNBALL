@@ -31,7 +31,7 @@
                 "value": {
                   "objectType": "StaticValue",
                   "valueType": "tchmi:framework#/definitions/ContentPath",
-                  "value": "Content/Main/Machine_View.content"
+                  "value": "Content/Main/Home.content"
                 },
                 "asyncWait": true
               }

@@ -924,7 +924,7 @@ END_VAR
                   <v n="Comment">""</v>
                   <v n="Title">""</v>
                   <v n="Label">"//Left buffer sim"</v>
-                  <v n="OutCommented">false</v>
+                  <v n="OutCommented">true</v>
                   <l2 n="NetworkItems" cet="BoxTreeBox">
                     <o>
                       <v n="BoxType">"MOVE"</v>
@@ -1005,7 +1005,7 @@ END_VAR
                             <o>
                               <o n="Operand" t="Operand">
                                 <v n="Operand">"Station.stCommand.bIntakeLift_UP"</v>
-                                <v n="Type">"BOOL"</v>
+                                <n n="Type" />
                                 <v n="Comment">""</v>
                                 <v n="SymbolComment">""</v>
                                 <v n="Address">""</v>
@@ -1119,7 +1119,7 @@ END_VAR
                   <v n="Comment">""</v>
                   <v n="Title">""</v>
                   <v n="Label">""</v>
-                  <v n="OutCommented">false</v>
+                  <v n="OutCommented">true</v>
                   <l2 n="NetworkItems" cet="BoxTreeBox">
                     <o>
                       <v n="BoxType">"MOVE"</v>
@@ -1244,7 +1244,7 @@ END_VAR
                   <v n="Comment">""</v>
                   <v n="Title">""</v>
                   <v n="Label">"//Right buffer sim"</v>
-                  <v n="OutCommented">false</v>
+                  <v n="OutCommented">true</v>
                   <l2 n="NetworkItems" cet="BoxTreeBox">
                     <o>
                       <v n="BoxType">"MOVE"</v>
@@ -1369,7 +1369,7 @@ END_VAR
                   <v n="Comment">""</v>
                   <v n="Title">""</v>
                   <v n="Label">""</v>
-                  <v n="OutCommented">false</v>
+                  <v n="OutCommented">true</v>
                   <l2 n="NetworkItems" cet="BoxTreeBox">
                     <o>
                       <v n="BoxType">"MOVE"</v>
@@ -1450,7 +1450,7 @@ END_VAR
                             <o>
                               <o n="Operand" t="Operand">
                                 <v n="Operand">"Station.stCommand.bOutletLift_DOWN"</v>
-                                <v n="Type">"BOOL"</v>
+                                <n n="Type" />
                                 <v n="Comment">""</v>
                                 <v n="SymbolComment">""</v>
                                 <v n="Address">""</v>

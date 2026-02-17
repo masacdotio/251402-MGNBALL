@@ -1330,6 +1330,50 @@
             },
             "USEMAPPING": true
         },
+        "ADS.PLC1.HMI.stCamera": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::HMI::stCamera",
+            "SCHEMA": {
+                "$ref": "tchmi:server#/definitions/ADS-PLC1.ST_Station_HMI"
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.HMI.stCamera.iStatus": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::HMI::stCamera::iStatus",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/UINT"
+                    },
+                    {
+                        "propertyOrder": 4
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.HMI.stCamera.iStep": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::HMI::stCamera::iStep",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/UINT"
+                    },
+                    {
+                        "propertyOrder": 1
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
         "ADS.PLC1.HMI.stFromHMI.bConveyorJog": {
             "ACCESS": 3,
             "DOMAIN": "ADS",
@@ -1585,6 +1629,23 @@
             },
             "USEMAPPING": true
         },
+        "ADS.PLC1.HMI.stFromHMI.stLiftIntake.iPosition": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::HMI::stFromHMI::stLiftIntake::iPosition",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/UINT"
+                    },
+                    {
+                        "propertyOrder": 4
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
         "ADS.PLC1.HMI.stFromHMI.stLiftOutlet.bGoDown": {
             "ACCESS": 3,
             "DOMAIN": "ADS",
@@ -1631,6 +1692,23 @@
                     },
                     {
                         "propertyOrder": 1
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.HMI.stFromHMI.stLiftOutlet.iPosition": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::HMI::stFromHMI::stLiftOutlet::iPosition",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/UINT"
+                    },
+                    {
+                        "propertyOrder": 4
                     }
                 ]
             },
@@ -1820,6 +1898,60 @@
                         "propertyOrder": 2
                     }
                 ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.HMI.stGreasing": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::HMI::stGreasing",
+            "SCHEMA": {
+                "$ref": "tchmi:server#/definitions/ADS-PLC1.ST_Station_HMI"
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.HMI.stGreasing.iStatus": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::HMI::stGreasing::iStatus",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/UINT"
+                    },
+                    {
+                        "propertyOrder": 4
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.HMI.stGreasing.iStep": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::HMI::stGreasing::iStep",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/UINT"
+                    },
+                    {
+                        "propertyOrder": 1
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.HMI.stInletBuffer": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::HMI::stInletBuffer",
+            "SCHEMA": {
+                "$ref": "tchmi:server#/definitions/ADS-PLC1.ST_Station_HMI"
             },
             "USEMAPPING": true
         },
@@ -2720,6 +2852,94 @@
             "MAPPING": "PLC1::HMI::stLastTray[9][6]",
             "SCHEMA": {
                 "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.HMI.stOutletBuffer": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::HMI::stOutletBuffer",
+            "SCHEMA": {
+                "$ref": "tchmi:server#/definitions/ADS-PLC1.ST_Station_HMI"
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.HMI.stOutletBuffer.iStatus": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::HMI::stOutletBuffer::iStatus",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/UINT"
+                    },
+                    {
+                        "propertyOrder": 4
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.HMI.stOutletBuffer.iStep": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::HMI::stOutletBuffer::iStep",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/UINT"
+                    },
+                    {
+                        "propertyOrder": 1
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.HMI.stRobot": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::HMI::stRobot",
+            "SCHEMA": {
+                "$ref": "tchmi:server#/definitions/ADS-PLC1.ST_Station_HMI"
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.HMI.stRobot.iStatus": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::HMI::stRobot::iStatus",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/UINT"
+                    },
+                    {
+                        "propertyOrder": 4
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.HMI.stRobot.iStep": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::HMI::stRobot::iStep",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/UINT"
+                    },
+                    {
+                        "propertyOrder": 1
+                    }
+                ]
             },
             "USEMAPPING": true
         },
@@ -3939,6 +4159,53 @@
                 "allOf": [
                     {
                         "$ref": "tchmi:general#/definitions/STRING%2880%29"
+                    },
+                    {
+                        "propertyOrder": 3
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.IN.bCamera_On": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::IN::bCamera_On",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.IN.bRobot_Ok": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::IN::bRobot_Ok",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.IN.bRobot_On": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::IN::bRobot_On",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.Station.stControl.bAuto": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::Station::stControl::bAuto",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/BOOL"
                     },
                     {
                         "propertyOrder": 3
@@ -7324,6 +7591,9 @@
                 "ADS.PLC1.GV.iTrend": 3,
                 "ADS.PLC1.HMI.iMenu": 3,
                 "ADS.PLC1.HMI.iPopupMenu": 3,
+                "ADS.PLC1.HMI.stCamera": 3,
+                "ADS.PLC1.HMI.stCamera.iStatus": 3,
+                "ADS.PLC1.HMI.stCamera.iStep": 3,
                 "ADS.PLC1.HMI.stFromHMI.bConveyorJog": 3,
                 "ADS.PLC1.HMI.stFromHMI.bFixedCameraCapture": 3,
                 "ADS.PLC1.HMI.stFromHMI.bRobotCameraCapture": 3,
@@ -7339,9 +7609,11 @@
                 "ADS.PLC1.HMI.stFromHMI.stLiftIntake.bGoDown": 3,
                 "ADS.PLC1.HMI.stFromHMI.stLiftIntake.bGoUp": 3,
                 "ADS.PLC1.HMI.stFromHMI.stLiftIntake.bHome": 3,
+                "ADS.PLC1.HMI.stFromHMI.stLiftIntake.iPosition": 3,
                 "ADS.PLC1.HMI.stFromHMI.stLiftOutlet.bGoDown": 3,
                 "ADS.PLC1.HMI.stFromHMI.stLiftOutlet.bGoUp": 3,
                 "ADS.PLC1.HMI.stFromHMI.stLiftOutlet.bHome": 3,
+                "ADS.PLC1.HMI.stFromHMI.stLiftOutlet.iPosition": 3,
                 "ADS.PLC1.HMI.stFromHMI.stMachineCtrl.bAutomaticMode": 3,
                 "ADS.PLC1.HMI.stFromHMI.stMachineCtrl.bPauseProcess": 3,
                 "ADS.PLC1.HMI.stFromHMI.stMachineCtrl.bServiceMode": 3,
@@ -7353,6 +7625,10 @@
                 "ADS.PLC1.HMI.stFromHMI.stRobot.bPowerOn": 3,
                 "ADS.PLC1.HMI.stFromHMI.stRobot.bStart": 3,
                 "ADS.PLC1.HMI.stFromHMI.stRobot.bStop": 3,
+                "ADS.PLC1.HMI.stGreasing": 3,
+                "ADS.PLC1.HMI.stGreasing.iStatus": 3,
+                "ADS.PLC1.HMI.stGreasing.iStep": 3,
+                "ADS.PLC1.HMI.stInletBuffer": 3,
                 "ADS.PLC1.HMI.stLastTray": 3,
                 "ADS.PLC1.HMI.stLastTray.0.0": 3,
                 "ADS.PLC1.HMI.stLastTray.0.1": 3,
@@ -7443,6 +7719,12 @@
                 "ADS.PLC1.HMI.stLastTray.9.4": 3,
                 "ADS.PLC1.HMI.stLastTray.9.5": 3,
                 "ADS.PLC1.HMI.stLastTray.9.6": 3,
+                "ADS.PLC1.HMI.stOutletBuffer": 3,
+                "ADS.PLC1.HMI.stOutletBuffer.iStatus": 3,
+                "ADS.PLC1.HMI.stOutletBuffer.iStep": 3,
+                "ADS.PLC1.HMI.stRobot": 3,
+                "ADS.PLC1.HMI.stRobot.iStatus": 3,
+                "ADS.PLC1.HMI.stRobot.iStep": 3,
                 "ADS.PLC1.HMI.stStation": 3,
                 "ADS.PLC1.HMI.stToHMI.bConveyorJog": 3,
                 "ADS.PLC1.HMI.stToHMI.stBatch.bBatchClose": 3,
@@ -7515,6 +7797,10 @@
                 "ADS.PLC1.HMI.stToHMI.stRobotCamera.bJobResult": 3,
                 "ADS.PLC1.HMI.stToHMI.stRobotCamera.sCameraStatus": 3,
                 "ADS.PLC1.HMI.stToHMI.stRobotCamera.sJobResult": 3,
+                "ADS.PLC1.IN.bCamera_On": 3,
+                "ADS.PLC1.IN.bRobot_Ok": 3,
+                "ADS.PLC1.IN.bRobot_On": 3,
+                "ADS.PLC1.Station.stControl.bAuto": 3,
                 "ChangeUserSettings": 3,
                 "ConfirmAlarm": 3,
                 "CreateEvent": 3,

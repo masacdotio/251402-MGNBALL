@@ -73,41 +73,37 @@ END_IF
 
 //--------------Lifts----------------------//
 //Intake lift (left)
-Station.stManCmd.bIntakeLift_UP := HMI.stFromHMI.stLiftIntake.bGoUp AND IN.iBufferIn > 1; //Service mode command
-Station.stManCmd.bIntakeLift_DOWN := HMI.stFromHMI.stLiftIntake.bGoDown AND IN.iBufferIn < 380; //Service mode command
+//Service mode commands
 IF HMI.stFromHMI.stLiftIntake.bHome AND Station.stControl.bService THEN
 	Station.stManCmd.bIntakeLift_HOME := TRUE;
 END_IF
-IF IN.iBufferIn < 1 THEN
-	Station.stManCmd.bIntakeLift_HOME := FALSE;
+IF Station.stControl.bService THEN
+	Station.stManCmd.iIntakeLift_SP := HMI.stFromHMI.stLiftIntake.iPosition;
 END_IF
+//Visualisation
 HMI.stToHMI.stLiftIntake.bHome := Station.stManCmd.bIntakeLift_HOME AND GV.stTime.bClock_500ms;
-//Elevator visualisation
-HMI.stToHMI.stLiftIntake.iPosition := 500 + IN.iBufferIn;
-IF HMI.stToHMI.stLiftIntake.iPosition < 500 THEN
-	HMI.stToHMI.stLiftIntake.iPosition := 500;
+IF HMI.stToHMI.stLiftIntake.iPosition > 10 THEN
+	HMI.stToHMI.stLiftIntake.iPosition := 10;
 END_IF
-IF HMI.stToHMI.stLiftIntake.iPosition > 880 THEN
-	HMI.stToHMI.stLiftIntake.iPosition := 880;
+IF HMI.stToHMI.stLiftIntake.iPosition <1 THEN
+	HMI.stToHMI.stLiftIntake.iPosition := 1;
 END_IF
 
 //Outlet lift (right)
-Station.stManCmd.bOutletLift_UP := HMI.stFromHMI.stLiftOutlet.bGoUp AND IN.iBufferOut > 1; //Service mode command
-Station.stManCmd.bOutletLift_DOWN := HMI.stFromHMI.stLiftOutlet.bGoDown AND IN.iBufferOut < 380; //Service mode command
+//Service mode commands
 IF HMI.stFromHMI.stLiftOutlet.bHome AND Station.stControl.bService THEN
 	Station.stManCmd.bOutletLift_HOME := TRUE;
 END_IF
-IF IN.iBufferOut >= 380 THEN
-	Station.stManCmd.bOutletLift_HOME := FALSE;
+IF Station.stControl.bService THEN
+	Station.stManCmd.iOutletLift_SP := HMI.stFromHMI.stLiftOutlet.iPosition;
 END_IF
+//Visualisation
 HMI.stToHMI.stLiftOutlet.bHome := Station.stManCmd.bOutletLift_HOME AND GV.stTime.bClock_500ms;
-//Elevator visualisation
-HMI.stToHMI.stLiftOutlet.iPosition := 500 + IN.iBufferOut;
-IF HMI.stToHMI.stLiftOutlet.iPosition < 500 THEN
-	HMI.stToHMI.stLiftOutlet.iPosition := 500;
+IF HMI.stToHMI.stLiftOutlet.iPosition > 10 THEN
+	HMI.stToHMI.stLiftOutlet.iPosition := 10;
 END_IF
-IF HMI.stToHMI.stLiftOutlet.iPosition > 880 THEN
-	HMI.stToHMI.stLiftOutlet.iPosition := 880;
+IF HMI.stToHMI.stLiftOutlet.iPosition <1 THEN
+	HMI.stToHMI.stLiftOutlet.iPosition := 1;
 END_IF
 
 //--------------Conveyor----------------------//
@@ -128,8 +124,10 @@ ELSE
 END_IF
 *)
 //HMI.stToHMI.stRobotCamera.sCameraStatus := Device.status
+
 //Fixed camera (above)
 HMI.stToHMI.stFixedCamera.bCapturing := Station.stCommand.bFixedCamera_Capture;
+HMI.stCamera.bInterlocksOK := IN.bCamera_On;
 (*
 IF Device.Pass THEN
 	HMI.stToHMI.stFixedCamera.sJobResult := 'Pass';
@@ -146,6 +144,7 @@ END_IF
 Station.stManCmd.tGreasing_Time := UINT_TO_TIME(HMI.stFromHMI.stGreasing.iTime);
 Station.stManCmd.bGreasing_Pulse := HMI.stFromHMI.stGreasing.bPulse;
 Station.stManCmd.bGreasing_Purge := HMI.stFromHMI.stGreasing.bPurge;
+HMI.stGreasing.bInterlocksOK := TRUE;
 
 //---------------LastTray-------------------//
 IF HMI.stFromHMI.iSelectedTray < 1 THEN

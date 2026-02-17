@@ -6,12 +6,10 @@ STRUCT
 	//Feeder cmd
 	bFeederSTART		:BOOL;
 	//Intake lift cmd
-	bIntakeLift_UP		:BOOL;
-	bIntakeLift_DOWN	:BOOL;
+	iIntakeLift_SP		:UINT;
 	bIntakeLift_HOME	:BOOL;
 	//Outlet lift cmd
-	bOutletLift_UP		:BOOL;
-	bOutletLift_DOWN	:BOOL;
+	iOutletLift_SP		:UINT;
 	bOutletLift_HOME	:BOOL;
 	//Robot cmd
 	bRobot_START		:BOOL;

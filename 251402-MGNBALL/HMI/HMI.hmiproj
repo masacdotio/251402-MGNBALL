@@ -132,6 +132,7 @@
   <Target Name="ReBuild" DependsOnTargets="Clean; Build" />
   <ItemGroup>
     <Folder Include="Content\Main" />
+    <Folder Include="Content\Interlocks" />
     <Folder Include="Content\UserControls" />
     <Folder Include="Content\PopUp" />
     <Folder Include="Fonts\" />
@@ -163,6 +164,15 @@
     <Content Include="Content\Header.content">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Content\Interlocks\Greasing_Interlocks.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\Interlocks\Camera_Interlocks.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\Interlocks\Robot_Interlocks.content">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Content\Main\Batch.content">
       <SubType>Content</SubType>
     </Content>
@@ -188,6 +198,12 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="Content\PopUp\Greaser.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\PopUp\Outlet_Buffer.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\PopUp\Inlet_Buffer.content">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Content\PopUp\Robot.content">
@@ -269,19 +285,31 @@
     <Content Include="Images\MASAC_logo.png">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Images\PID\Camera.png">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Images\PID\Camera_left.png">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Images\PID\Cognex.png">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Images\PID\Cognex_White.png">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Images\PID\fioki.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\PID\Greasing.png">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Images\PID\icon_Robot.png">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Images\PID\Keyence.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\PID\Lift.png">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Images\PID\Lift_in.png">
@@ -302,7 +330,7 @@
     <Content Include="Images\PID\PositionSensor_on.png">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Images\PID\Robot_Green.png">
+    <Content Include="Images\PID\Robot.png">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Images\PID\Robot_UR.png">

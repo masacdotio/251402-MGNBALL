@@ -28,6 +28,7 @@ VAR_GLOBAL
 	bCamera_Busy			:BOOL;
 	bCamera_Done			:BOOL;
 	bCamera_Args			:BYTE;
+	bCamera_On				:BOOL;
 	
 	//Conveyor
 	bConveyor_Drive			:BOOL;
