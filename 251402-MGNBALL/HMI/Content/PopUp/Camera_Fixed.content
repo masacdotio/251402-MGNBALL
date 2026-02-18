@@ -57,7 +57,7 @@
 </script>
 <div id="TcHmiTextblock_1366" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-text="%l%CMR_Status%/l%" data-tchmi-width="132" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="17" data-tchmi-text-horizontal-alignment="Right" data-tchmi-text-vertical-alignment="Center" data-tchmi-bottom="156" data-tchmi-left="10">
 </div>
-<div id="TcHmiTextblock_1367" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-width="256" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="17" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-left="234" data-tchmi-bottom="156" data-tchmi-text="%s%ADS.PLC1.HMI.stToHMI.stFixedCamera.sCameraStatus%/s%" data-tchmi-text-font-weight="Bold">
+<div id="TcHmiTextblock_1367" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-width="256" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="17" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-left="234" data-tchmi-bottom="156" data-tchmi-text-font-weight="Bold">
 <script data-tchmi-target-attribute="data-tchmi-border-width" type="application/json">
 {
   "left": 0,

@@ -164,10 +164,19 @@
     <Content Include="Content\Header.content">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Content\Interlocks\Conveyor_Interlocks.content">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Content\Interlocks\Greasing_Interlocks.content">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Content\Interlocks\Camera_Interlocks.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\Interlocks\OutletBuffer_Interlocks.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\Interlocks\InletBuffer_Interlocks.content">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Content\Interlocks\Robot_Interlocks.content">
@@ -192,6 +201,9 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="Content\Navigation_bar.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\PopUp\Conveyor.content">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Content\PopUp\Camera_Fixed.content">
@@ -285,6 +297,9 @@
     <Content Include="Images\MASAC_logo.png">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Images\PID\buffer.png">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Images\PID\Camera.png">
       <SubType>Content</SubType>
     </Content>
@@ -297,7 +312,19 @@
     <Content Include="Images\PID\Cognex_White.png">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Images\PID\Conveyor.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\PID\Conveyor_Large.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\PID\feeder.png">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Images\PID\fioki.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\PID\grease.png">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Images\PID\Greasing.png">
@@ -316,6 +343,9 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="Images\PID\Lift_out.png">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Images\PID\Locker.png">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Images\PID\MovementArrows.png">

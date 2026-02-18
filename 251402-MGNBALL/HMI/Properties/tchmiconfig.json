@@ -86,7 +86,28 @@
       "preloadBindings": false
     },
     {
+      "url": "Content/Interlocks/Conveyor_Interlocks.content",
+      "preload": false,
+      "keepAlive": false,
+      "loadSync": false,
+      "preloadBindings": false
+    },
+    {
       "url": "Content/Interlocks/Greasing_Interlocks.content",
+      "preload": false,
+      "keepAlive": false,
+      "loadSync": false,
+      "preloadBindings": false
+    },
+    {
+      "url": "Content/Interlocks/InletBuffer_Interlocks.content",
+      "preload": false,
+      "keepAlive": false,
+      "loadSync": false,
+      "preloadBindings": false
+    },
+    {
+      "url": "Content/Interlocks/OutletBuffer_Interlocks.content",
       "preload": false,
       "keepAlive": false,
       "loadSync": false,
@@ -150,6 +171,13 @@
     },
     {
       "url": "Content/PopUp/Camera_Fixed.content",
+      "preload": false,
+      "keepAlive": false,
+      "loadSync": false,
+      "preloadBindings": false
+    },
+    {
+      "url": "Content/PopUp/Conveyor.content",
       "preload": false,
       "keepAlive": false,
       "loadSync": false,

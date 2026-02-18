@@ -76,10 +76,18 @@
     "Status_Waiting": "Waiting",
     "Status_Error": "ERROR",
     "Status_Active": "Active",
-    "LastTray": "Last tray",
+    "LastTray": "Finished trays",
     "LFT_Level": "Level",
     "RBT_INTL_1": "Robot turned on",
     "RBT_INTL_2": "Robot not in error",
-    "CMR_INTL_1": "Camera turned on"
+    "CMR_INTL_1": "Camera turned on",
+    "LFT1_INTL_1": "Door closed",
+    "LFT1_INTL_2": "Stepper drive OK",
+    "LFT1_INTL_3": "Tray removed",
+    "Locked": "Locked",
+    "Unlocked": "Unlocked",
+    "FDR_Name": "Feeding station",
+    "CNV_INTL_1": "DC drive OK",
+    "CNV_INTL_2": "Outlet tray absent"
   }
 }

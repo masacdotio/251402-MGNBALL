@@ -13,6 +13,8 @@ VAR_GLOBAL
 	bSensor_TrayOutReady	:BOOL;
 	bSensor_TrayInPick		:BOOL;
 	bSensor_TrayInPlace		:BOOL;
+	bSensor_InletDoor_Closed	:BOOL;
+	bSensor_OutletDoor_Closed	:BOOL;
 	
 	//Robot
 	bRobot_Initialised		:BOOL;
@@ -34,16 +36,20 @@ VAR_GLOBAL
 	bConveyor_Drive			:BOOL;
 	bPickClamped			:BOOL;
 	bPlaceClamped			:BOOL;
+	bConveyorDrive_OK		:BOOL;
 	
 	//Feeder
 	bFeeder_ON				:BOOL;
+	bFeederDrive_OK			:BOOL;
 	
 	//Intake buffer
 	bIntakeBuffer_Homed		:BOOL;
 	iBufferIn				:INT;
+	bIntakeBuffer_DriveOK	:BOOL;
 	//Outlet buffer
 	bOutletBuffer_Homed		:BOOL;
 	iBufferOut				:INT;
+	bOutletBuffer_DriveOK	:BOOL;
 
 END_VAR]]></Declaration>
   </GVL>
