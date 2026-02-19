@@ -493,7 +493,7 @@
 </div>
 <div id="TcHmiTextblock_1423" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-width="132" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="17" data-tchmi-text-horizontal-alignment="Right" data-tchmi-text-vertical-alignment="Center" data-tchmi-bottom="5" data-tchmi-left="10" data-tchmi-text="%l%Interlocks%/l%">
 </div>
-<div id="TcHmiRegion_6" data-tchmi-type="TcHmi.Controls.System.TcHmiRegion" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="234" data-tchmi-left-unit="px" data-tchmi-width="256" data-tchmi-width-unit="px" data-tchmi-bottom="5" data-tchmi-target-content="Content/Interlocks/OutletBuffer_Interlocks.content">
+<div id="TcHmiRegion_6" data-tchmi-type="TcHmi.Controls.System.TcHmiRegion" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="234" data-tchmi-left-unit="px" data-tchmi-width="256" data-tchmi-width-unit="px" data-tchmi-bottom="5" data-tchmi-target-content="Content/Interlocks/OutletBuffer_Interlocks.content" data-tchmi-zindex="2">
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
   {

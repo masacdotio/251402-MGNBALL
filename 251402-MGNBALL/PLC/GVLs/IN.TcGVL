@@ -50,6 +50,10 @@ VAR_GLOBAL
 	bOutletBuffer_Homed		:BOOL;
 	iBufferOut				:INT;
 	bOutletBuffer_DriveOK	:BOOL;
+	
+	//Greaser
+	bGreasing_PressureOK	:BOOL;
+	bGreasing_LevelOK		:BOOL;
 
 END_VAR]]></Declaration>
   </GVL>

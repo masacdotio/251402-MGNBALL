@@ -12,7 +12,7 @@ VAR_OUTPUT
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[bInterlocksOK := TRUE;
+      <ST><![CDATA[bInterlocksOK := Station.stRobotControl.bInterlockOK;
 
 iStepTemp:=iStep;
 CASE iStep OF

@@ -23,8 +23,10 @@ END_VAR]]></Declaration>
       <ST><![CDATA[//Select mode
 IF Station.stControl.bAuto THEN
 	Station.stCommand := Station.stAutoCmd;
+	MEMSET(destAddr:=Station.stManCmd, fillByte:=0, n:=SIZEOF(Station.stManCmd));
 ELSIF Station.stControl.bService THEN
 	Station.stCommand := Station.stManCmd;
+	MEMSET(destAddr:=Station.stAutoCmd, fillByte:=0, n:=SIZEOF(Station.stAutoCmd));
 END_IF
 
 //Step-sequence

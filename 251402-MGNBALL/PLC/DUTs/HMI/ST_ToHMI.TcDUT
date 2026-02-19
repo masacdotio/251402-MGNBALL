@@ -16,6 +16,9 @@ STRUCT
 	stCounter		:ARRAY [1..7] OF ST_Counter_HMI;
 	stGreasing		:ST_Greasing_HMI;
 	stHistory		:ST_History_HMI;
+	iMessage		:UINT;
+	iMessageSeverity :USINT;
+	stFeeder		:ST_Feeder_HMI;
 END_STRUCT
 END_TYPE
 ]]></Declaration>

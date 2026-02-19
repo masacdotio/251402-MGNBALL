@@ -11,7 +11,7 @@ VAR_OUTPUT
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[bInterlocksOK := TRUE;
+      <ST><![CDATA[bInterlocksOK := IN.bCamera_On;
 
 iStepTemp:=iStep;
 CASE iStep OF
@@ -39,7 +39,12 @@ IF NOT bInterlocksOK THEN
 END_IF
 
 //Control
-Station.stAutoCmd.bConveyorJog := F_StepCMP(iStep, 200, 300, 0, 0, 0, 0, 0, 0, 0, 0);
+IF F_StepCMP(iStep, 200, 0, 0, 0, 0, 0, 0, 0, 0, 0) THEN
+	Station.stAutoCmd.iFixedCamera_Job := 1;
+ELSE
+	Station.stAutoCmd.iFixedCamera_Job := 0;
+END_IF
+
 ]]></ST>
     </Implementation>
   </POU>

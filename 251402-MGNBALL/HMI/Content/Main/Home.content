@@ -867,6 +867,28 @@
                 "asyncWait": true
               }
             ]
+          },
+          {
+            "caseValue": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/USINT",
+              "value": 70
+            },
+            "actions": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctx%owner::TargetFile%/ctx%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/TcHmi.Controls.System.TcHmiPopup.TargetFile",
+                  "value": {
+                    "path": "Content/PopUp/Feeder.content"
+                  }
+                },
+                "asyncWait": true
+              }
+            ]
           }
         ],
         "asyncWait": true
@@ -946,7 +968,7 @@
 </div>
 <div id="TcHmiTextblock_1393" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="36" data-tchmi-height-unit="px" data-tchmi-text="%l%LFT_Level%/l%" data-tchmi-width="74" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-text-font-size="17" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center" data-tchmi-bottom="303" data-tchmi-left="48" data-tchmi-zindex="2">
 </div>
-<div id="Station_Camera" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="170" data-tchmi-height-unit="px" data-tchmi-ipopupaddress="20" data-tchmi-left="811" data-tchmi-left-unit="px" data-tchmi-target-user-control="Content/UserControls/Station.usercontrol" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="250" data-tchmi-width-unit="px" data-tchmi-plc_interface="%s%ADS.PLC1.HMI.stCamera%/s%" data-tchmi-sname="%l%CMR_Name2%/l%" data-tchmi-zindex="2">
+<div id="Station_Camera" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="170" data-tchmi-height-unit="px" data-tchmi-ipopupaddress="20" data-tchmi-left="811" data-tchmi-left-unit="px" data-tchmi-target-user-control="Content/UserControls/Station.usercontrol" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="250" data-tchmi-width-unit="px" data-tchmi-plc_interface="%s%ADS.PLC1.HMI.stCamera%/s%" data-tchmi-sname="%l%CMR_Name2%/l%" data-tchmi-zindex="8">
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
   {
@@ -1399,7 +1421,7 @@
 ]
 </script>
 </div>
-<div id="Station_11" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="170" data-tchmi-height-unit="px" data-tchmi-ipopupaddress="70" data-tchmi-left="811" data-tchmi-left-unit="px" data-tchmi-target-user-control="Content/UserControls/Station.usercontrol" data-tchmi-top="222" data-tchmi-top-unit="px" data-tchmi-width="250" data-tchmi-width-unit="px" data-tchmi-plc_interface="%s%ADS.PLC1.HMI.stStation%/s%" data-tchmi-sname="%l%FDR_Name%/l%" data-tchmi-zindex="2">
+<div id="Feeding_Station" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="170" data-tchmi-height-unit="px" data-tchmi-ipopupaddress="70" data-tchmi-left="811" data-tchmi-left-unit="px" data-tchmi-target-user-control="Content/UserControls/Station.usercontrol" data-tchmi-top="222" data-tchmi-top-unit="px" data-tchmi-width="250" data-tchmi-width-unit="px" data-tchmi-plc_interface="%s%ADS.PLC1.HMI.stStation%/s%" data-tchmi-sname="%l%FDR_Name%/l%" data-tchmi-zindex="2">
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
   {

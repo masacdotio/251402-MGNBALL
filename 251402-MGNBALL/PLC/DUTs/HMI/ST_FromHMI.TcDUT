@@ -15,6 +15,7 @@ STRUCT
 	stCounter			:ARRAY [1..4] OF ST_Counter_HMI;
 	stGreasing			: ST_Greasing_HMI;
 	iSelectedTray		: USINT;
+	stFeeder			:ST_Feeder_HMI;
 END_STRUCT
 END_TYPE
 ]]></Declaration>

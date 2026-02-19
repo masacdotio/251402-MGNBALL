@@ -52,7 +52,7 @@ END_VAR
 		
 END_CASE
 
-bInterlocksOK := TRUE;
+bInterlocksOK := IN.bOutletBuffer_DriveOK AND IN.bSensor_OutletDoor_Closed;
 
 iStepTemp:=iStep;
 CASE iStep OF

@@ -107,7 +107,6 @@ IF HMI.stToHMI.stLiftOutlet.iPosition <1 THEN
 END_IF
 
 //--------------Conveyor----------------------//
-//HMI.stToHMI.bConveyorJog := Station.stCommand.bConveyorJog;
 HMI.stToHMI.stPID.bConveyor_Moving := IN.bConveyor_Drive;
 Station.stManCmd.bConveyorJog := HMI.stFromHMI.bConveyorJog; //Service mode command
 
@@ -145,6 +144,16 @@ Station.stManCmd.tGreasing_Time := UINT_TO_TIME(HMI.stFromHMI.stGreasing.iTime);
 Station.stManCmd.bGreasing_Pulse := HMI.stFromHMI.stGreasing.bPulse;
 Station.stManCmd.bGreasing_Purge := HMI.stFromHMI.stGreasing.bPurge;
 HMI.stGreasing.bInterlocksOK := TRUE;
+
+//-----------------Feeder--------------------//
+IF HMI.stFromHMI.stFeeder.bActivate THEN
+	Station.stManCmd.bFeederSTART := TRUE;
+ELSIF HMI.stFromHMI.stFeeder.bDeactivate THEN
+	Station.stManCmd.bFeederSTART := FALSE;
+END_IF
+
+HMI.stToHMI.stFeeder.bActivate := IN.bFeeder_ON;
+HMI.stToHMI.stFeeder.bDeactivate := NOT IN.bFeeder_ON;
 
 //---------------LastTray-------------------//
 IF HMI.stFromHMI.iSelectedTray < 1 THEN

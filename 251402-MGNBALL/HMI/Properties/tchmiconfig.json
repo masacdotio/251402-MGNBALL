@@ -93,6 +93,13 @@
       "preloadBindings": false
     },
     {
+      "url": "Content/Interlocks/Feeder_Interlocks.content",
+      "preload": false,
+      "keepAlive": false,
+      "loadSync": false,
+      "preloadBindings": false
+    },
+    {
       "url": "Content/Interlocks/Greasing_Interlocks.content",
       "preload": false,
       "keepAlive": false,
@@ -178,6 +185,13 @@
     },
     {
       "url": "Content/PopUp/Conveyor.content",
+      "preload": false,
+      "keepAlive": false,
+      "loadSync": false,
+      "preloadBindings": false
+    },
+    {
+      "url": "Content/PopUp/Feeder.content",
       "preload": false,
       "keepAlive": false,
       "loadSync": false,

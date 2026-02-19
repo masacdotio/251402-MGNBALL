@@ -1263,6 +1263,23 @@
             },
             "USEMAPPING": true
         },
+        "ADS.PLC1.CONST.MSG_FillIntakeBuffer": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::CONST::MSG_FillIntakeBuffer",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/UINT"
+                    },
+                    {
+                        "comment": "Message IDs"
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
         "ADS.PLC1.GV.aPoints": {
             "ACCESS": 3,
             "DOMAIN": "ADS",
@@ -1418,6 +1435,23 @@
             },
             "USEMAPPING": true
         },
+        "ADS.PLC1.HMI.stFeeder.iStatus": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::HMI::stFeeder::iStatus",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/UINT"
+                    },
+                    {
+                        "propertyOrder": 4
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
         "ADS.PLC1.HMI.stFeeder.iStep": {
             "ACCESS": 3,
             "DOMAIN": "ADS",
@@ -1566,6 +1600,40 @@
                     },
                     {
                         "propertyOrder": 1
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.HMI.stFromHMI.stFeeder.bActivate": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::HMI::stFromHMI::stFeeder::bActivate",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/BOOL"
+                    },
+                    {
+                        "propertyOrder": 1
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.HMI.stFromHMI.stFeeder.bDeactivate": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::HMI::stFromHMI::stFeeder::bDeactivate",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/BOOL"
+                    },
+                    {
+                        "propertyOrder": 2
                     }
                 ]
             },
@@ -3048,6 +3116,40 @@
             },
             "USEMAPPING": true
         },
+        "ADS.PLC1.HMI.stToHMI.iMessage": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::HMI::stToHMI::iMessage",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/UINT"
+                    },
+                    {
+                        "propertyOrder": 14
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.HMI.stToHMI.iMessageSeverity": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::HMI::stToHMI::iMessageSeverity",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/USINT"
+                    },
+                    {
+                        "propertyOrder": 15
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
         "ADS.PLC1.HMI.stToHMI.stBatch.bBatchClose": {
             "ACCESS": 3,
             "DOMAIN": "ADS",
@@ -3329,6 +3431,40 @@
                 "allOf": [
                     {
                         "$ref": "tchmi:general#/definitions/UDINT"
+                    },
+                    {
+                        "propertyOrder": 2
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.HMI.stToHMI.stFeeder.bActivate": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::HMI::stToHMI::stFeeder::bActivate",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/BOOL"
+                    },
+                    {
+                        "propertyOrder": 1
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.HMI.stToHMI.stFeeder.bDeactivate": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::HMI::stToHMI::stFeeder::bDeactivate",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/BOOL"
                     },
                     {
                         "propertyOrder": 2
@@ -4262,6 +4398,33 @@
             "MAPPING": "PLC1::IN::bConveyorDrive_OK",
             "SCHEMA": {
                 "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.IN.bGreasing_LevelOK": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::IN::bGreasing_LevelOK",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "ADS.PLC1.IN.bGreasing_PressureOK": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::IN::bGreasing_PressureOK",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/BOOL"
+                    },
+                    {
+                        "comment": "Greaser"
+                    }
+                ]
             },
             "USEMAPPING": true
         },
@@ -7760,6 +7923,7 @@
                 "ADS.AdsSyncReadStateReq": 3,
                 "ADS.CheckLicense": 3,
                 "ADS.Diagnostics": 3,
+                "ADS.PLC1.CONST.MSG_FillIntakeBuffer": 3,
                 "ADS.PLC1.GV.aPoints": 3,
                 "ADS.PLC1.GV.fbTrend.q_iTrend": 3,
                 "ADS.PLC1.GV.iAxis": 3,
@@ -7772,6 +7936,7 @@
                 "ADS.PLC1.HMI.stConveyor": 3,
                 "ADS.PLC1.HMI.stConveyor.iStatus": 3,
                 "ADS.PLC1.HMI.stConveyor.iStep": 3,
+                "ADS.PLC1.HMI.stFeeder.iStatus": 3,
                 "ADS.PLC1.HMI.stFeeder.iStep": 3,
                 "ADS.PLC1.HMI.stFromHMI.bConveyorJog": 3,
                 "ADS.PLC1.HMI.stFromHMI.bFixedCameraCapture": 3,
@@ -7781,6 +7946,8 @@
                 "ADS.PLC1.HMI.stFromHMI.stBatch.bBatchOpen": 3,
                 "ADS.PLC1.HMI.stFromHMI.stBatch.sBatchName": 3,
                 "ADS.PLC1.HMI.stFromHMI.stCounter.0.bReset": 3,
+                "ADS.PLC1.HMI.stFromHMI.stFeeder.bActivate": 3,
+                "ADS.PLC1.HMI.stFromHMI.stFeeder.bDeactivate": 3,
                 "ADS.PLC1.HMI.stFromHMI.stGreasing.bPulse": 3,
                 "ADS.PLC1.HMI.stFromHMI.stGreasing.bPurge": 3,
                 "ADS.PLC1.HMI.stFromHMI.stGreasing.iTime": 3,
@@ -7907,6 +8074,8 @@
                 "ADS.PLC1.HMI.stRobot.iStep": 3,
                 "ADS.PLC1.HMI.stStation": 3,
                 "ADS.PLC1.HMI.stToHMI.bConveyorJog": 3,
+                "ADS.PLC1.HMI.stToHMI.iMessage": 3,
+                "ADS.PLC1.HMI.stToHMI.iMessageSeverity": 3,
                 "ADS.PLC1.HMI.stToHMI.stBatch.bBatchClose": 3,
                 "ADS.PLC1.HMI.stToHMI.stBatch.bBatchOpen": 3,
                 "ADS.PLC1.HMI.stToHMI.stCounter.0.bReset": 3,
@@ -7924,6 +8093,8 @@
                 "ADS.PLC1.HMI.stToHMI.stCounter.5.iOK": 3,
                 "ADS.PLC1.HMI.stToHMI.stCounter.6.iNOK": 3,
                 "ADS.PLC1.HMI.stToHMI.stCounter.6.iOK": 3,
+                "ADS.PLC1.HMI.stToHMI.stFeeder.bActivate": 3,
+                "ADS.PLC1.HMI.stToHMI.stFeeder.bDeactivate": 3,
                 "ADS.PLC1.HMI.stToHMI.stFixedCamera.bCapturing": 3,
                 "ADS.PLC1.HMI.stToHMI.stFixedCamera.sCameraStatus": 3,
                 "ADS.PLC1.HMI.stToHMI.stFixedCamera.sJobResult": 3,
@@ -7979,6 +8150,8 @@
                 "ADS.PLC1.HMI.stToHMI.stRobotCamera.sJobResult": 3,
                 "ADS.PLC1.IN.bCamera_On": 3,
                 "ADS.PLC1.IN.bConveyorDrive_OK": 3,
+                "ADS.PLC1.IN.bGreasing_LevelOK": 3,
+                "ADS.PLC1.IN.bGreasing_PressureOK": 3,
                 "ADS.PLC1.IN.bIntakeBuffer_DriveOK": 3,
                 "ADS.PLC1.IN.bOutletBuffer_DriveOK": 3,
                 "ADS.PLC1.IN.bPickClamped": 3,

@@ -50,7 +50,7 @@ END_VAR
 		
 END_CASE
 
-bInterlocksOK := TRUE;
+bInterlocksOK := IN.bIntakeBuffer_DriveOK AND IN.bSensor_InletDoor_Closed;
 
 iStepTemp:=iStep;
 CASE iStep OF
@@ -72,7 +72,7 @@ CASE iStep OF
 		END_IF
 	
 	300: //Call operator and pause process (in MachineControl)
-		//Call operator
+		HMI.stToHMI.iMessage := CONST.MSG_FillIntakeBuffer;
 		iStep := 999;
 	
 		

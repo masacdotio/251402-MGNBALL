@@ -11,6 +11,10 @@ VAR_GLOBAL
 	//Process constants
 	GREASE_DENSITY			:REAL:=1;//[g/l]
 	
+	
+	//Message IDs
+	MSG_FillIntakeBuffer	:UINT := 10;
+	
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

@@ -11,7 +11,7 @@ VAR_OUTPUT
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[bInterlocksOK := TRUE;
+      <ST><![CDATA[bInterlocksOK := IN.bConveyorDrive_OK AND NOT IN.bSensor_TrayOutReady AND NOT IN.bPickClamped AND NOT IN.bPlaceClamped;
 
 iStepTemp:=iStep;
 CASE iStep OF
@@ -30,11 +30,26 @@ CASE iStep OF
 			iStep := 300;
 		END_IF
 	
-	300: //Driving
-		IF IN.bSensor_TrayInPick AND IN.bSensor_TrayInPlace THEN
-			iStep := 999;
+	300: //Driving 1
+		IF IN.bSensor_TrayInPick THEN
+			iStep := 310;
 		END_IF
-
+	
+	310: //Driving 2
+		IF NOT IN.bSensor_TrayInPick THEN
+			iStep := 400;
+		END_IF
+	
+	400: //Wait for firsst contact
+		IF IN.bSensor_TrayInPick THEN
+			iStep := 410;
+		ELSIF IN.bSensor_TrayInPlace THEN
+			iStep := 450;
+		END_IF
+	
+	410: //Lock pick position
+		;
+	
 	999: //finish
 		iStep := 0;
 END_CASE

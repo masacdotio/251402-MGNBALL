@@ -164,6 +164,9 @@
     <Content Include="Content\Header.content">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Content\Interlocks\Feeder_Interlocks.content">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Content\Interlocks\Conveyor_Interlocks.content">
       <SubType>Content</SubType>
     </Content>
@@ -201,6 +204,9 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="Content\Navigation_bar.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Content\PopUp\Feeder.content">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Content\PopUp\Conveyor.content">

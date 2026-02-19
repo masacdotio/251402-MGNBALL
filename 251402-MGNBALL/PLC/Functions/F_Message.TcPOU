@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="F_Message" Id="{53e31a67-8ca8-4d28-a9e8-329197ac683c}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION F_Message : BOOL
+VAR_INPUT
+	iMessageIndex		:UINT;
+	sSeverity			:STRING; //error, warning or message
+END_VAR
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF sSeverity = 'error' THEN //Highest priority, overwrite everything
+	HMI.stToHMI.iMessageSeverity := 100; 
+	HMI.stToHMI.iMessage := iMessageIndex;
+END_IF
+
+IF sSeverity = 'warning' AND HMI.stToHMI.iMessageSeverity < 50 THEN //Priority 50, overwrite everything else
+	HMI.stToHMI.iMessageSeverity := 50;
+	HMI.stToHMI.iMessage := iMessageIndex;
+END_IF
+
+IF sSeverity = 'message' AND HMI.stToHMI.iMessageSeverity < 10 THEN //Priority 10, overwrite everything else
+	HMI.stToHMI.iMessageSeverity := 10;
+	HMI.stToHMI.iMessage := iMessageIndex;
+END_IF
+
+//Reset message
+IF iMessageIndex = 0 THEN
+	HMI.stToHMI.iMessage := 0;
+	HMI.stToHMI.iMessageSeverity := 0;
+END_IF
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

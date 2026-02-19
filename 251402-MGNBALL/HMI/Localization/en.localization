@@ -88,6 +88,14 @@
     "Unlocked": "Unlocked",
     "FDR_Name": "Feeding station",
     "CNV_INTL_1": "DC drive OK",
-    "CNV_INTL_2": "Outlet tray absent"
+    "CNV_INTL_2": "Outlet tray absent",
+    "GRS_INTL_1": "Pressure OK",
+    "GRS_INTL_2": "Level OK",
+    "MSG_FillIntakeBuffer": "Fill intake buffer",
+    "FDR_On": "Activate",
+    "FDR_Off": "Deactivate",
+    "CNV_INTL_3": "Left tray free",
+    "CNV_INTL_4": "Right tray free",
+    "FDR_INTL_1": "Robot away"
   }
 }
